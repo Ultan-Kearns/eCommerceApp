@@ -10,7 +10,6 @@ mongoose.connect(mongoDB);
 //schema goes below
 var Schema = mongoose.Schema
 
-//define order schema
 
 //define user schema 
 var userSchema = new Schema({
@@ -21,9 +20,18 @@ var userSchema = new Schema({
 })
 
 //define order schema 
+//each order should only need a unique ID and date created
+var orderSchema = new Schema({
+	Id: {type: Number, default: 0},
+	dateCreated: {type: Date, default: Date.now },
+})
 
 
 //define review schema
 var reviewSchema = new Schema({
-
+	Id: {type: Number, default: 0},
+	dateCreated: {type: Date, default: Date.now},
+	content: {type: String, default: 'Blank'},
+	//leave default at 0 as 0 will indicate no review left
+	rating: {type: Number, default: 0},
 })
