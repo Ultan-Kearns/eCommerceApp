@@ -12,7 +12,8 @@ import { SupportComponent } from './support/support.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { DealsComponent } from './deals/deals.component'; 
 
-import {MatCardModule} from '@angular/material/card'; 
+import {MatCardModule} from '@angular/material/card';
+import { LoginComponent } from './login/login.component'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import {MatCardModule} from '@angular/material/card';
     AboutComponent,
     SupportComponent,
     CategoriesComponent,
-    DealsComponent
+    DealsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
