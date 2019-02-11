@@ -24,7 +24,7 @@ var Schema = mongoose.Schema
 
 //define order schema
 var orderSchema = new Schema({
-  Id: { type: Number, default: 1 },
+  id: { type: Number, default: 1 },
   name: { type: String, default: 'guest' },
   address: { type: String, min: 18, index: true },
   dateCreated: { type: Date, default: Date.now },
@@ -38,10 +38,11 @@ var userSchema = new Schema({
   dateCreated: { type: Date, default: Date.now },
 })
 
-//define order schema 
-
-
 //define review schema
 var reviewSchema = new Schema({
-
+	Id: {type: Number, default: 0},
+	dateCreated: {type: Date, default: Date.now},
+	content: {type: String, default: 'Blank'},
+	//leave default at 0 as 0 will indicate no review left
+	rating: {type: Number, default: 0},
 })
