@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon'; 
+import {MatExpansionModule} from '@angular/material/expansion'; 
 import { HomepageComponent } from './homepage/homepage.component';
 import { AboutComponent } from './about/about.component';
 import { SupportComponent } from './support/support.component';
@@ -31,6 +32,8 @@ import { LoginComponent } from './login/login.component';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
+    MatExpansionModule,
+
     
   ],
   providers: [],
