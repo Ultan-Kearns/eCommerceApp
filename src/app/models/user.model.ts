@@ -1,5 +1,6 @@
 export interface User {
-	Number Id,age;
-	String name;
-	Date dateCreated;
+	 Id:number;
+	 age:number;
+	name:string;
+	dateCreated:Date;
 }
