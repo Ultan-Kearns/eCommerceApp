@@ -14,6 +14,9 @@ import { DealsComponent } from './deals/deals.component';
 import {MatCardModule} from '@angular/material/card';
 import { LoginComponent } from './login/login.component'; 
 import { RetrieveService } from './services/retrieve.service';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+ import { MatMenuModule} from '@angular/material/menu';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +35,9 @@ import { RetrieveService } from './services/retrieve.service';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatMenuModule,
     
   ],
   providers: [RetrieveService],

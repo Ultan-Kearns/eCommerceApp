@@ -1,12 +1,22 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row id="webName">EMart</mat-toolbar-row>
   <mat-toolbar-row>
-    <a routerLink = "homepage" class = "menuLink" class = "home"><mat-icon class = "menuButton">home</mat-icon></a>
-    <a routerLink = "categories" class = "menuLink"><button mat-raised-button color = "warn" class = "menuButton">Categories</button></a>
-    <a routerLink = "deals" class = "menuLink"><button mat-raised-button color = "warn" class = "menuButton">Deals</button></a>
-    <a routerLink = "about" class = "menuLink"><button mat-raised-button color = "warn" class = "menuButton">About</button></a>
-    <a routerLink = "support" class = "menuLink"><button mat-raised-button color = "warn">Support</button></a>
-    <a routerLink = "login" class = "menuLink"><button mat-raised-button color = "warn" class = "warn">login</button></a>
+    <a routerLink="homepage" class="menuLink" class="home">
+      <mat-icon class="menuButton">home</mat-icon>
+    </a>
+    <!--
+    <a routerLink = "categories" class = "menuLink"><button mat-raised-button color = "warn" class = "menuButton">Shop by department</button></a> -->
+    <button mat-button [matMenuTriggerFor]="menu">Shop by department</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Books</button>
+      <button mat-menu-item>Electronics</button>
+      <button mat-menu-item>Sport</button>
+      <button mat-menu-item>Outdoors</button>
+    </mat-menu>
+    <a routerLink="deals" class="menuLink"><button mat-raised-button color="warn" class="menuButton">Deals</button></a>
+    <a routerLink="about" class="menuLink"><button mat-raised-button color="warn" class="menuButton">About</button></a>
+    <a routerLink="support" class="menuLink"><button mat-raised-button color="warn">Support</button></a>
+    <a routerLink="login" class="menuLink"><button mat-raised-button color="warn" class="warn">login</button></a>
   </mat-toolbar-row>
 </mat-toolbar>
 <router-outlet></router-outlet>
