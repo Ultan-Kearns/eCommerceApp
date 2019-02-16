@@ -8,9 +8,8 @@ import { RetrieveService } from '../services/retrieve.service';
 export class HomepageComponent implements OnInit {
 	private users:any[];
   constructor(private rs:RetrieveService) { 
-
+ 
   }
-
   ngOnInit() {
   	  //get uesrs on intialization
     this.rs.getUserData().subscribe(data => {

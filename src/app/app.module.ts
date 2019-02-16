@@ -13,7 +13,9 @@ import { CategoriesComponent } from './categories/categories.component';
 import { DealsComponent } from './deals/deals.component'; 
 import {MatCardModule} from '@angular/material/card';
 import { LoginComponent } from './login/login.component'; 
-import { RetrieveService } from './services/retrieve.service';
+  import { RetrieveService } from './services/retrieve.service';
+
+  import { AuthenticationService } from './services/authentication.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,7 @@ import { RetrieveService } from './services/retrieve.service';
     MatCardModule,
     
   ],
-  providers: [RetrieveService],
+  providers: [RetrieveService,AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

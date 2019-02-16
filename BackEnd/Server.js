@@ -18,7 +18,9 @@ app.use(function (req, res, next) {
         "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
-
+app.get('/user', function (req, res) {
+  res.send('Hello World')
+})
 //schema goes below
 var Schema = mongoose.Schema
 
