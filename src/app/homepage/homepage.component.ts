@@ -14,8 +14,6 @@ export class HomepageComponent implements OnInit {
   	  //get uesrs on intialization
     this.rs.getUserData().subscribe(data => {
       this.users = data;
-      console.log("ERROR: ", data)
-      console.log("HELLO" + this.users[0]);
     });
   }
 
