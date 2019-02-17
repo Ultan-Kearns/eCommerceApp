@@ -38,15 +38,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-<<<<<<< HEAD
     MatExpansionModule,
-
-=======
     FormsModule,
     ReactiveFormsModule,
     MatMenuModule,
->>>>>>> feature
-    
   ],
   providers: [RetrieveService,AuthenticationService],
   bootstrap: [AppComponent]

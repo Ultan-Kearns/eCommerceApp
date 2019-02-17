@@ -8,7 +8,7 @@ import { RetrieveService } from '../services/retrieve.service';
 export class HomepageComponent implements OnInit {
 	private users:any[];
   constructor(private rs:RetrieveService) { 
- 
+           console.log("USERS : " + this.users);
   }
   ngOnInit() {
   	  //get uesrs on intialization

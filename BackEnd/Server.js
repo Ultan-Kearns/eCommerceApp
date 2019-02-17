@@ -30,9 +30,6 @@ var orderSchema = new Schema({
   price: { type: Number, default: 0 },
 })
 
-//define order model
-var orderModel = mongoose.model('order', orderSchema);
-
 //define user schema 
 var userSchema = new Schema({
   id: { type: Number, default: 1 },
@@ -40,11 +37,6 @@ var userSchema = new Schema({
   age: { type: Number, min: 18, index: true },
   dateCreated: { type: Date, default: Date.now },
 })
- 
-
-//define user model
-var userModel = mongoose.model('user', userSchema);
- 
 //define review schema
 var reviewSchema = new Schema({
   Id: { type: Number, default: 0 },
@@ -54,17 +46,9 @@ var reviewSchema = new Schema({
   rating: { type: Number, default: 0 },
 })
 
-//define review model
+//define models
 var reviewModel = mongoose.model('review', reviewSchema);
-
-//define server variable
-
-var server = app.listen(8081, function() {
-  var host = server.address().address
-  var port = server.address().port
-
-  console.log("This is listening at http://%s:%s", host, port)
-})
+var orderModel = mongoose.model('order', orderSchema);
 var userModel = mongoose.model('users', userSchema);
 //send response 200 to show it is connected
 app.get('/', function (req, res) {
@@ -93,6 +77,5 @@ app.get('/api/reviews', function (req, res) {
 var server = app.listen(8081, function () {
     var host = server.address().address
     var port = server.address().port
-
     console.log("Example app listening at http://%s:%s", host, port)
 })
