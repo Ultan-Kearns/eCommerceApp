@@ -2,12 +2,14 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
-
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb://G00345608:sh@rds3939@ds113375.mlab.com:13375/ecommerceapp';
+var mongoDB = 'mongodb://emart:G00343745@ds113375.mlab.com:13375/ecommerceapp';
+var Schema = mongoose.Schema;
 mongoose.connect(mongoDB);
 //Here we are configuring express to use body-parser as middle-ware.
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 app.use(bodyParser.json());
 //left in cross origin for firefox
 app.use(function(req, res, next) {
@@ -18,9 +20,6 @@ app.use(function(req, res, next) {
     "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
-
-//schema goes below
-var Schema = mongoose.Schema
 
 //define order schema
 var orderSchema = new Schema({
@@ -36,15 +35,16 @@ var orderModel = mongoose.model('order', orderSchema);
 
 //define user schema 
 var userSchema = new Schema({
-  Id: { type: Number, default: 1 },
+  id: { type: Number, default: 1 },
   name: { type: String, default: 'guest' },
   age: { type: Number, min: 18, index: true },
   dateCreated: { type: Date, default: Date.now },
 })
+ 
 
 //define user model
 var userModel = mongoose.model('user', userSchema);
-
+ 
 //define review schema
 var reviewSchema = new Schema({
   Id: { type: Number, default: 0 },
@@ -64,4 +64,35 @@ var server = app.listen(8081, function() {
   var port = server.address().port
 
   console.log("This is listening at http://%s:%s", host, port)
+})
+var userModel = mongoose.model('users', userSchema);
+//send response 200 to show it is connected
+app.get('/', function (req, res) {
+    res.status(200).send('Server works');
+})
+
+app.get('/api/users', function (req, res) {
+    //test
+    userModel.find(function (err, data) {
+        res.json(data);
+});
+})
+app.get('/api/orders', function (req, res) {
+    //test
+  console.log(req.body.id)
+  console.log(req.body.name)
+  res.status(200).send("orders works")
+})
+app.get('/api/reviews', function (req, res) {
+  //test
+  console.log(req.body.id)
+  console.log(req.body.name)
+  res.status(200).send("review works")
+})
+//have server listening at port 8081
+var server = app.listen(8081, function () {
+    var host = server.address().address
+    var port = server.address().port
+
+    console.log("Example app listening at http://%s:%s", host, port)
 })

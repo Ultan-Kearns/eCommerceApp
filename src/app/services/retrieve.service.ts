@@ -5,8 +5,11 @@ import { User } from '../models/user.model';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthenticationService {
+export class RetrieveService {
 
   constructor(private http:HttpClient) { 
+  }
+  getUserData():Observable<any>{
+  	return this.http.get("http://localhost:8081/api/users");
   }
 }
