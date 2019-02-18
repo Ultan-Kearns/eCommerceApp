@@ -16,17 +16,4 @@
     </mat-accordion>
 -->
 </div>
-  	<mat-card>
-  		<mat-card-content>Test Deal</mat-card-content>
-  	</mat-card>
-  	     <mat-accordion multi="true" *ngIf="users.length > 0">
-      <div *ngFor="let user of users">
-        <mat-expansion-panel [expanded]="true">
-          <mat-expansion-panel-header>
-            {{ user.id }}
-          </mat-expansion-panel-header>
-          <p>{{ user.name }}</p>
-        </mat-expansion-panel>
-      </div>
-    </mat-accordion>
-</div>
+  	  {{users[0].name}}

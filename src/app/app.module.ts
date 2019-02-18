@@ -14,11 +14,16 @@ import { CategoriesComponent } from './categories/categories.component';
 import { DealsComponent } from './deals/deals.component'; 
 import {MatCardModule} from '@angular/material/card';
 import { LoginComponent } from './login/login.component'; 
-  import { RetrieveService } from './services/retrieve.service';
-  import { AuthenticationService } from './services/authentication.service';
+import { RetrieveService } from './services/retrieve.service';
+import { AuthenticationService } from './services/authentication.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
- import { MatMenuModule} from '@angular/material/menu';
-
+import { MatMenuModule} from '@angular/material/menu';
+import { HttpClientModule } from '@angular/common/http'; 
+import { HttpModule } from '@angular/http';
+import { ElectronicsComponent } from './electronics/electronics.component';
+import { BooksComponent } from './books/books.component';
+import { SportsComponent } from './sports/sports.component';
+import { OutdoorsComponent } from './outdoors/outdoors.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +33,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     SupportComponent,
     CategoriesComponent,
     DealsComponent,
-    LoginComponent
+    LoginComponent,
+    ElectronicsComponent,
+    BooksComponent,
+    SportsComponent,
+    OutdoorsComponent
   ],
   imports: [
     BrowserModule,
@@ -42,8 +51,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     MatMenuModule,
+    HttpClientModule,
+    HttpModule,
   ],
-  providers: [RetrieveService,AuthenticationService],
+  providers: [RetrieveService,AuthenticationService,HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
