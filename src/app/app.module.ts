@@ -10,7 +10,6 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AboutComponent } from './about/about.component';
 import { SupportComponent } from './support/support.component';
-import { CategoriesComponent } from './categories/categories.component';
 import { DealsComponent } from './deals/deals.component'; 
 import { MatCardModule } from '@angular/material/card';
 import { LoginComponent } from './login/login.component'; 
@@ -24,6 +23,7 @@ import { ElectronicsComponent } from './electronics/electronics.component';
 import { BooksComponent } from './books/books.component';
 import { SportsComponent } from './sports/sports.component';
 import { OutdoorsComponent } from './outdoors/outdoors.component';
+import { ItemComponent } from './item/item.component';
 
 @NgModule({
   declarations: [
@@ -31,13 +31,13 @@ import { OutdoorsComponent } from './outdoors/outdoors.component';
     HomepageComponent,
     AboutComponent,
     SupportComponent,
-    CategoriesComponent,
     DealsComponent,
     LoginComponent,
     ElectronicsComponent,
     BooksComponent,
     SportsComponent,
-    OutdoorsComponent
+    OutdoorsComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,

@@ -52,36 +52,43 @@ var itemSchema = new Schema({
   category:{type: String, default: 'Miscellaneous'},
   rating:{type: Number, default: 3}
 })
-//define models
+var bugSchema = new Schema({
+  id:{type: Number, default:0},
+  subject:{type:String,default:''},
+  issue:{type:String,default:''}
+})
+//define models for retrieval from DB
 var reviewModel = mongoose.model('reviews', reviewSchema);
 var orderModel = mongoose.model('orders', orderSchema);
 var userModel = mongoose.model('users', userSchema);
 var itemModel = mongoose.model('items',itemSchema)
+var bugModel = mongoose.model('bugs',bugSchema)
 //send response 200 to show it is connected
 app.get('/', function(req, res) {
   res.status(200).send('Server works');
 })
-
+//retrieve items
 app.get('/api/users', function(req, res) {
-  //test
   userModel.find(function(err, data) {
     res.json(data);
   });
 })
 app.get('/api/orders', function(req, res) {
-  //test
   orderModel.find(function(err, data) {
     res.json(data);
   });
 })
 app.get('/api/reviews', function(req, res) {
-  //test
   reviewModel.find(function(err, data) {
     res.json(data);
   });
 })
 app.get('/api/items', function(req, res) {
-  //test
+  itemModel.find(function(err, data) {
+    res.json(data);
+  });
+})
+app.get('/api/bugs', function(req, res) {
   itemModel.find(function(err, data) {
     res.json(data);
   });

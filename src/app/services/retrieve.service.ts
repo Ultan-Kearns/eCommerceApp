@@ -12,10 +12,13 @@ export class RetrieveService {
   getUserData():Observable<any>{
   	return this.http.get("http://localhost:8081/api/users");
   }
-    getOrderData():Observable<any>{
+  getOrderData():Observable<any>{
   	return this.http.get("http://localhost:8081/api/orders");
   }
-    getReviewData():Observable<any>{
+  getReviewData():Observable<any>{
   	return this.http.get("http://localhost:8081/api/reviews");
+  }
+  getItemData():Observable<any>{
+  	return this.http.get("http://localhost:8081/api/items");
   }
 }
