@@ -38,16 +38,24 @@ var userSchema = new Schema({
 })
 //define review schema
 var reviewSchema = new Schema({
-	Id: {type: Number, default: 0},
+	id: {type: Number, default: 0},
 	dateCreated: {type: Date, default: Date.now},
 	content: {type: String, default: 'Blank'},
 	//leave default at 0 as 0 will indicate no review left
 	rating: {type: Number, default: 0},
 })
+var itemSchema = new Schema({
+  id:{type: Number, default:0},
+  price:{type: Number, default: 10},
+  name:{type: String, default: 'undefined'},
+  category:{type: String, default: 'Miscellaneous'},
+  rating:{type: Number, default: 3}
+})
 //define models
 var reviewModel = mongoose.model('reviews', reviewSchema);
 var orderModel = mongoose.model('orders', orderSchema);
 var userModel = mongoose.model('users', userSchema);
+var itemModel = mongoose.model('items',itemSchema)
 //send response 200 to show it is connected
 app.get('/', function(req, res) {
   res.status(200).send('Server works');
@@ -68,6 +76,12 @@ app.get('/api/orders', function(req, res) {
 app.get('/api/reviews', function(req, res) {
   //test
   reviewModel.find(function(err, data) {
+    res.json(data);
+  });
+})
+app.get('/api/items', function(req, res) {
+  //test
+  itemModel.find(function(err, data) {
     res.json(data);
   });
 })
