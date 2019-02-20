@@ -8,10 +8,10 @@
     <a routerLink = "categories" class = "menuLink"><button mat-raised-button color = "warn" class = "menuButton">Shop by department</button></a> -->
     <button mat-button [matMenuTriggerFor]="menu">Shop by department</button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>Books</button>
-      <button mat-menu-item>Electronics</button>
-      <button mat-menu-item>Sport</button>
-      <button mat-menu-item>Outdoors</button>
+      <a routerLink="blank" class="menuLink"><button mat-menu-item>Books</button></a>
+      <a routerLink="blank" class="menuLink"><button mat-menu-item>Electronics</button></a>
+      <a routerLink="sports" class="menuLink"><button mat-menu-item>Sport</button></a>
+      <a routerLink="outdoor" class="menuLink"><button mat-menu-item>Outdoors</button></a>
     </mat-menu>
     <a routerLink="deals" class="menuLink"><button mat-raised-button color="warn" class="menuButton">Deals</button></a>
     <a routerLink="about" class="menuLink"><button mat-raised-button color="warn" class="menuButton">About</button></a>
