@@ -27,7 +27,8 @@ import { SportsComponent } from './sports/sports.component';
 import { OutdoorsComponent } from './outdoors/outdoors.component';
 import { ItemComponent } from './item/item.component';
 import { CartComponent } from './cart/cart.component';
-import {MatFormFieldModule} from '@angular/material/form-field'; 
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { RegisterComponent } from './register/register.component'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     SportsComponent,
     OutdoorsComponent,
     ItemComponent,
-    CartComponent
+    CartComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

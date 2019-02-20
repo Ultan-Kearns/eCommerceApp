@@ -9,7 +9,9 @@ import  {OutdoorsComponent } from './outdoors/outdoors.component';
 import { SportsComponent} from './sports/sports.component';
 import {BooksComponent} from './books/books.component';
 import {ElectronicsComponent} from './electronics/electronics.component';
-
+import { RegisterComponent } from './register/register.component'; 
+import { ItemComponent } from './item/item.component';
+import { CartComponent } from './cart/cart.component';
 const routes: Routes = [
    	{path: 'homepage',component: HomepageComponent},
    	{path: 'about',component: AboutComponent},
@@ -19,7 +21,10 @@ const routes: Routes = [
 	{path: 'outdoor', component: OutdoorsComponent},
 	{path: 'sports', component: SportsComponent},
 	{path: 'books', component: BooksComponent},
-	{path: 'electronics', component: ElectronicsComponent}
+	{path: 'electronics', component: ElectronicsComponent},
+	{path: 'register', component: RegisterComponent},
+	{path: 'item', component: ItemComponent},
+	{path: 'cart', component: CartComponent},
 	];
 
 @NgModule({
