@@ -14,9 +14,10 @@ export class SupportComponent implements OnInit {
   }
   onAddBug(form:NgForm)
   {
+    console.log(form.value);
   	if(form.valid)
   	{
-  		this.post.postBug(form.value.title,form.value.content).subscribe();
+  		this.post.postBug(form.value.title,form.value.content,"0").subscribe();
   		form.reset();
   		alert("Bug added we will try to fix soon!");
   	}

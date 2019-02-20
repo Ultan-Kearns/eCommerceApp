@@ -5,18 +5,17 @@
     try to get to you as soon as possible.
   </p>
 <form (submit)="onBugPost(bugForm)" #bugForm="ngForm" id="postArea">
-  <h3>Enter Bugs here:</h3>
-  <mat-form-field>
-    <textarea matInput placeholder="Enter subject of complaint: " class="subject" id="subject" ngModel required #subject="ngModel"
-      rows="4" minlength="5" maxlength="20" resize = "false"></textarea>
-    <mat-error *ngIf="content.invalid">Please enter a post title > 5 characters</mat-error>
+  <h3>Title of complaint:</h3>
+  <mat-form-field id="postTitle">
+    <textarea matInput placeholder="Enter subject of complaint: " name="title" id="subject" ngModel required #subject="ngModel"
+      rows="4" minlength="5" maxlength="20"></textarea>
+    <mat-error>Please enter a post title > 5 characters</mat-error>
   </mat-form-field>
   <mat-form-field>
     <br>
-    <br>
-    <textarea matInput placeholder="Enter issue: " class="text" ngModel required #issue="ngModel"
-       minlength="10" maxlength="200" resize = "false" width = "200" height = "200"></textarea>
-    <mat-error *ngIf="content.invalid">Please enter an issue > 10 characters</mat-error>
+    <textarea matInput placeholder="Enter issue: " name="content" ngModel required #issue="ngModel"
+       minlength="10" maxlength="200" class = "text"></textarea>
+    <mat-error>Please enter an issue > 10 characters</mat-error>
   </mat-form-field>
   <br>
   <button mat-raised-button color="accent" matTooltip="Submit Bug">Submit</button>

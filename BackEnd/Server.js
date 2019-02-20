@@ -54,7 +54,8 @@ var itemSchema = new Schema({
 })
 var bugSchema = new Schema({
   subject:{type:String,default:''},
-  issue:{type:String,default:''}
+  issue:{type:String,default:''},
+  id:{type:String, default: '0'}
 })
 //define models for retrieval from DB
 var reviewModel = mongoose.model('reviews', reviewSchema);
@@ -86,11 +87,20 @@ app.get('/api/items', function(req, res) {
   itemModel.find(function(err, data) {
     res.json(data);
   });
-})
+}) 
 app.get('/api/bugs', function(req, res) {
   bugModel.find(function(err, data) {
     res.json(data);
   });
+})
+app.post('/api/bugs',function(req,res)
+{
+  bugModel.create({
+      subject: req.body.subject,
+      issue:req.body.issue,
+      id:req.body.id,
+    });
+    res.status(201).send("Bug added");
 })
 //have server listening at port 8081
 var server = app.listen(8081, function() {
