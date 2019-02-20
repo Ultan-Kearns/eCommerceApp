@@ -53,7 +53,6 @@ var itemSchema = new Schema({
   rating:{type: Number, default: 3}
 })
 var bugSchema = new Schema({
-  id:{type: Number, default:0},
   subject:{type:String,default:''},
   issue:{type:String,default:''}
 })
@@ -89,7 +88,7 @@ app.get('/api/items', function(req, res) {
   });
 })
 app.get('/api/bugs', function(req, res) {
-  itemModel.find(function(err, data) {
+  bugModel.find(function(err, data) {
     res.json(data);
   });
 })

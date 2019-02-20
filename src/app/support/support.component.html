@@ -4,10 +4,21 @@
     Please record your issues below and we will have a team of qualified developers to help you. We will email you with a ticket number and
     try to get to you as soon as possible.
   </p>
-  <h2>Enter subject of issue, should be concise and to the point</h2>
-  <input type="text" placeholder="Subject" maxlength="10" />
+<form (submit)="onBugPost(bugForm)" #bugForm="ngForm" id="postArea">
+  <h3>Enter Bugs here:</h3>
+  <mat-form-field>
+    <textarea matInput placeholder="Enter subject of complaint: " class="subject" id="subject" ngModel required #subject="ngModel"
+      rows="4" minlength="5" maxlength="20" resize = "false"></textarea>
+    <mat-error *ngIf="content.invalid">Please enter a post title > 5 characters</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <br>
+    <br>
+    <textarea matInput placeholder="Enter issue: " class="text" ngModel required #issue="ngModel"
+       minlength="10" maxlength="200" resize = "false" width = "200" height = "200"></textarea>
+    <mat-error *ngIf="content.invalid">Please enter an issue > 10 characters</mat-error>
+  </mat-form-field>
   <br>
-  <h2>Report issue here</h2>
-  <textarea class="text" maxlength="200" placeholder="Report issues here" resize="false"></textarea>
-  <button mat-raised-button color="warn" class="submit">Submit</button>
+  <button mat-raised-button color="accent" matTooltip="Submit Bug">Submit</button>
+</form>
 </div>

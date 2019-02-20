@@ -1,3 +1,4 @@
+//imports for components and services
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,6 +15,7 @@ import { DealsComponent } from './deals/deals.component';
 import { MatCardModule } from '@angular/material/card';
 import { LoginComponent } from './login/login.component'; 
 import { RetrieveService } from './services/retrieve.service';
+import { BugPostService } from './services/bugpost.service';
 import { AuthenticationService } from './services/authentication.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatMenuModule} from '@angular/material/menu';
@@ -24,7 +26,8 @@ import { BooksComponent } from './books/books.component';
 import { SportsComponent } from './sports/sports.component';
 import { OutdoorsComponent } from './outdoors/outdoors.component';
 import { ItemComponent } from './item/item.component';
-
+import { CartComponent } from './cart/cart.component';
+import {MatFormFieldModule} from '@angular/material/form-field'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +40,8 @@ import { ItemComponent } from './item/item.component';
     BooksComponent,
     SportsComponent,
     OutdoorsComponent,
-    ItemComponent
+    ItemComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -53,8 +57,10 @@ import { ItemComponent } from './item/item.component';
     MatMenuModule,
     HttpClientModule,
     HttpModule,
+    MatFormFieldModule,
+    
   ],
-  providers: [RetrieveService,AuthenticationService,HttpClientModule],
+  providers: [RetrieveService,AuthenticationService,HttpClientModule,BugPostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
