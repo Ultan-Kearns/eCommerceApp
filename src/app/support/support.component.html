@@ -4,9 +4,9 @@
     Please record your issues below and we will have a team of qualified developers to help you. We will email you with a ticket number and
     try to get to you as soon as possible.
   </p>
-<form (submit)="onBugPost(bugForm)" #bugForm="ngForm" id="postArea">
+<form (submit)="onAddBug(bugForm)" #bugForm="ngForm">
   <h3>Title of complaint:</h3>
-  <mat-form-field id="postTitle">
+  <mat-form-field>
     <textarea matInput placeholder="Enter subject of complaint: " name="title" id="subject" ngModel required #subject="ngModel"
       rows="4" minlength="5" maxlength="20"></textarea>
     <mat-error>Please enter a post title > 5 characters</mat-error>
