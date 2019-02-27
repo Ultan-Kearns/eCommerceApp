@@ -9,13 +9,13 @@
   <mat-form-field>
     <textarea matInput placeholder="Enter subject of complaint: " name="title" id="subject" ngModel required #subject="ngModel"
       rows="4" minlength="5" maxlength="20"></textarea>
-    <mat-error>Please enter a post title > 5 characters</mat-error>
+    <mat-error>Please enter a subject title > 5 characters</mat-error>
   </mat-form-field>
   <mat-form-field>
     <br>
     <textarea matInput placeholder="Enter issue: " name="content" ngModel required #issue="ngModel"
        minlength="10" maxlength="200" class = "text"></textarea>
-    <mat-error>Please enter an issue > 10 characters</mat-error>
+    <mat-error>Please enter a bug issue > 10 characters</mat-error>
   </mat-form-field>
   <br>
   <button mat-raised-button color="accent" matTooltip="Submit Bug">Submit</button>

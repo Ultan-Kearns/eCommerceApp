@@ -1,4 +1,16 @@
-<p>
-  register works!
-</p>
-<router-outlet></router-outlet>
+<form (submit)="onAddUser(userForm)" #userForm="ngForm">
+  <h3>Enter E-mail address:</h3>
+  <mat-form-field>
+    <input type="email" matInput placeholder="Enter email: " ngModel required 
+      rows="4" minlength="5" maxlength="20" />
+    <mat-error>Please enter valid email</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <br>
+    <textarea matInput placeholder="Enter issue: " name="content" ngModel required #issue="ngModel"
+       minlength="10" maxlength="200" class = "text"></textarea>
+    <mat-error>Please enter an issue > 10 characters</mat-error>
+  </mat-form-field>
+  <br>
+  <button mat-raised-button color="accent" matTooltip="Submit Bug">Submit</button>
+</form>
