@@ -8,22 +8,26 @@
 <form (submit)="onAddUser(userForm)" #userForm="ngForm">
     <mat-form-field>
     <input matInput placeholder="Enter age: " name = "age" ngModel required 
-      rows="4" minlength="5" maxlength="20" />
-    <mat-error>Please enter valid integer</mat-error>
+      rows="4" min = "18"/>
+    <mat-error>please enter value >= 18</mat-error>
   </mat-form-field>
+  <br>
       <mat-form-field>
     <input matInput placeholder="name: " name = "name" ngModel required 
       rows="4" maxlength="100" />
   </mat-form-field>
+    <br>
   <mat-form-field>
     <input type="email" matInput placeholder="Enter email: " name = "email" ngModel required 
       rows="4" minlength="5" maxlength="20" />
     <mat-error>Please enter valid email</mat-error>
   </mat-form-field>
+    <br>
     <mat-form-field>
     <input matInput placeholder="Enter address: " name = "address" ngModel required 
-      rows="4" minlength="5" maxlength="20" />
+      rows="4"  maxlength="20" />
   </mat-form-field>
+    <br>
   <mat-form-field>
     <br>
     <textarea matInput placeholder="Enter password: " name="content" name = "password" ngModel required #issue="ngModel"

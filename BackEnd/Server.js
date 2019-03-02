@@ -26,7 +26,7 @@ var orderSchema = new Schema({
   id: { type: Number, default: 1 },
   name: { type: String, default: 'guest' },
   address: { type: String, min: 18, index: true },
-  dateCreated: { type: Date, default: Date.now },
+  dateCreated: { type: String, default: "2018-09-01" },
   price: { type: Number, default: 0 },
 })
 
@@ -35,8 +35,8 @@ var userSchema = new Schema({
   age: { type: Number, min: 18, index: true },
   name: { type: String, default: 'guest' },
   email:{type: String},
-  address{type:String},
-  password{type:String},
+  address:{type:String},
+  password:{type:String},
   dateCreated: { type: Date, default: Date.now },
 })
 //define review schema
@@ -107,11 +107,13 @@ app.post('/api/bugs',function(req,res)
 app.post('/api/users',function(req,res)
 {
   userModel.create({
-      name: req.body.subject,
-      issue:req.body.issue,
-      id:req.body.id,
+    age:req.body.age,
+    name: req.body.name,
+    email:req.body.email,
+    address:req.body.address,
+    password:req.body.password
     });
-    res.status(201).send("Bug added");
+    res.status(201).send("user added");
 })
 //have server listening at port 8081
 var server = app.listen(8081, function() {
