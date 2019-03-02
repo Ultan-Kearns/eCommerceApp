@@ -7,9 +7,10 @@ import{Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) { }
-
+  constructor(private router:Router) { }
+  gotoComponent(x:string){
+  	this.router.navigate(["/register"]);
+  }
   ngOnInit() {
   }
-
 }

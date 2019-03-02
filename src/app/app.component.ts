@@ -7,10 +7,9 @@ import {Router} from "@angular/router";
 })
 export class AppComponent {
   title = 'eCommerceApp';
- 
-  constructor(private router:Router){
+
+  constructor(  private router:Router){
   	this.router.navigate(["/","homepage"])
   }
-
 }
 

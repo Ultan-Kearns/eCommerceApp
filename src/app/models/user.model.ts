@@ -1,5 +1,7 @@
 export interface User {
 	 age:number;
 	name:string;
-	dateCreated:Date;
+	email:string;
+	address:string;
+	password:string;
 }
