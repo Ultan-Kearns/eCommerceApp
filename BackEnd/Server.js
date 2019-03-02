@@ -32,9 +32,11 @@ var orderSchema = new Schema({
 
 //define user schema 
 var userSchema = new Schema({
-  id: { type: Number, default: 1 },
-  name: { type: String, default: 'guest' },
   age: { type: Number, min: 18, index: true },
+  name: { type: String, default: 'guest' },
+  email:{type: String},
+  address{type:String},
+  password{type:String},
   dateCreated: { type: Date, default: Date.now },
 })
 //define review schema
@@ -97,6 +99,15 @@ app.post('/api/bugs',function(req,res)
 {
   bugModel.create({
       subject: req.body.subject,
+      issue:req.body.issue,
+      id:req.body.id,
+    });
+    res.status(201).send("Bug added");
+})
+app.post('/api/users',function(req,res)
+{
+  userModel.create({
+      name: req.body.subject,
       issue:req.body.issue,
       id:req.body.id,
     });

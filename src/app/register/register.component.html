@@ -1,16 +1,35 @@
+<h1>Register with us today :)</h1>
+<!--   age:number;
+  name:string;
+  email:string;
+  address:string
+  password
+  dateCreated:Date;-->
 <form (submit)="onAddUser(userForm)" #userForm="ngForm">
-  <h3>Enter E-mail address:</h3>
+    <mat-form-field>
+    <input matInput placeholder="Enter age: " name = "age" ngModel required 
+      rows="4" minlength="5" maxlength="20" />
+    <mat-error>Please enter valid integer</mat-error>
+  </mat-form-field>
+      <mat-form-field>
+    <input matInput placeholder="name: " name = "name" ngModel required 
+      rows="4" maxlength="100" />
+  </mat-form-field>
   <mat-form-field>
-    <input type="email" matInput placeholder="Enter email: " ngModel required 
+    <input type="email" matInput placeholder="Enter email: " name = "email" ngModel required 
       rows="4" minlength="5" maxlength="20" />
     <mat-error>Please enter valid email</mat-error>
   </mat-form-field>
+    <mat-form-field>
+    <input matInput placeholder="Enter address: " name = "address" ngModel required 
+      rows="4" minlength="5" maxlength="20" />
+  </mat-form-field>
   <mat-form-field>
     <br>
-    <textarea matInput placeholder="Enter issue: " name="content" ngModel required #issue="ngModel"
-       minlength="10" maxlength="200" class = "text"></textarea>
-    <mat-error>Please enter an issue > 10 characters</mat-error>
+    <textarea matInput placeholder="Enter password: " name="content" name = "password" ngModel required #issue="ngModel"
+       minlength="5" maxlength="200" class = "text"></textarea>
+    <mat-error>Please enter an password > 5 characters</mat-error>
   </mat-form-field>
   <br>
-  <button mat-raised-button color="accent" matTooltip="Submit Bug">Submit</button>
+  <button mat-raised-button color="accent" matTooltip="Register user">Submit</button>
 </form>

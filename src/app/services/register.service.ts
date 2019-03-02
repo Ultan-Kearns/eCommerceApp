@@ -10,8 +10,8 @@ export class Register {
   constructor(private http:HttpClient) { 
   }
   //register user
-  registerUser(id:string,name:string,age:string,dateCreated:string): Observable<any> {
-  	const user:User = {id:id,name:name,age:age,dateCreated:dateCreated};
+  registerUser(age:number,name:string,email:string,address:string,password:string,dateCreated:Date): Observable<any> {
+  	const user:User = {age:age,name:name,email:email,address:address,password:password,dateCreated:dateCreated};
   	return this.http.post("http://localhost:8081/api/users/",user);
   }
 }
