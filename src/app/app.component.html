@@ -8,15 +8,15 @@
     <a routerLink = "categories" class = "menuLink"><button mat-raised-button color = "warn" class = "menuButton">Shop by department</button></a> -->
     <button mat-button [matMenuTriggerFor]="menu">Shop by department</button>
     <mat-menu #menu="matMenu">
-      <a routerLink="books" class="menuLink"><button mat-menu-item>Books</button></a>
+      <a routerLink="books" class="menuLink"><button mat-menu-item matTooltip="books">Books</button></a>
       <a routerLink="electronics" class="menuLink"><button mat-menu-item>Electronics</button></a>
       <a routerLink="sports" class="menuLink"><button mat-menu-item>Sport</button></a>
       <a routerLink="outdoor" class="menuLink"><button mat-menu-item>Outdoors</button></a>
     </mat-menu>
-    <a routerLink="deals" class="menuLink"><button mat-raised-button color="warn" class="menuButton">Deals</button></a>
-    <a routerLink="about" class="menuLink"><button mat-raised-button color="warn" class="menuButton">About</button></a>
-    <a routerLink="support" class="menuLink"><button mat-raised-button color="warn">Support</button></a>
-    <a routerLink="login" class="menuLink"><button mat-raised-button color="warn" class="warn">login</button></a>
+    <a routerLink="deals" class="menuLink"><button mat-raised-button color="warn" class="menuButton" matTooltip="Deals of the day">Deals</button></a>
+    <a routerLink="about" class="menuLink"><button mat-raised-button color="warn" class="menuButton" matTooltip="About our site">About</button></a>
+    <a routerLink="support" class="menuLink"><button mat-raised-button color="warn" matTooltip="About our site">Support</button></a>
+    <a routerLink="login" class="menuLink"><button mat-raised-button color="warn" class="warn" matTooltip="Login or register here">login</button></a>
   </mat-toolbar-row>
 </mat-toolbar>
 <router-outlet></router-outlet>

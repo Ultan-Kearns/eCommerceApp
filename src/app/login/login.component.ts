@@ -8,7 +8,7 @@ import{Router} from '@angular/router';
 export class LoginComponent implements OnInit {
 
   constructor(private router:Router) { }
-  gotoComponent(x:string){
+  gotoComponent(){
   	this.router.navigate(["/register"]);
   }
   ngOnInit() {
