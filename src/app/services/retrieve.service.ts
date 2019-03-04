@@ -24,6 +24,6 @@ export class RetrieveService {
   }
   //for specific item
   getItemData(id:string):Observable<any>{
-    return this.http.get("http://localhost:8081/api/items" + id);
+    return this.http.get("http://localhost:8081/api/items:" + id);
   }
 }

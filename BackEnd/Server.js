@@ -90,6 +90,11 @@ app.get('/api/items', function(req, res) {
     res.json(data);
   });
 }) 
+app.get('/api/items:id', function(req, res) {
+  itemModel.find(function(err, data) {
+    res.json(data);
+  });
+}) 
 app.get('/api/bugs', function(req, res) {
   bugModel.find(function(err, data) {
     res.json(data);
