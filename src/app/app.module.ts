@@ -29,7 +29,8 @@ import { ItemComponent } from './item/item.component';
 import { CartComponent } from './cart/cart.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip'; 
-import { RegisterComponent } from './register/register.component'; 
+import { RegisterComponent } from './register/register.component';
+import { AccountComponent } from './account/account.component'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { RegisterComponent } from './register/register.component';
     ItemComponent,
     CartComponent,
     RegisterComponent,
+    AccountComponent,
   ],
   imports: [
     BrowserModule,
