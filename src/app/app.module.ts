@@ -30,7 +30,8 @@ import { CartComponent } from './cart/cart.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip'; 
 import { RegisterComponent } from './register/register.component';
-import { AccountComponent } from './account/account.component'; 
+import { AccountComponent } from './account/account.component';
+import { ForgotComponent } from './forgot/forgot.component'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +48,7 @@ import { AccountComponent } from './account/account.component';
     CartComponent,
     RegisterComponent,
     AccountComponent,
+    ForgotComponent,
   ],
   imports: [
     BrowserModule,

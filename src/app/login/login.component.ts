@@ -8,9 +8,11 @@ import{NgForm} from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
+	x:string
   constructor(private router:Router) { }
-  gotoComponent(){
-  	this.router.navigate(["/register"]);
+  gotoComponent(x:string){
+  	this.x = x;
+  	this.router.navigate(["/"] + x);
   }
   ngOnInit() {
   }
