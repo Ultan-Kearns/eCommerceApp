@@ -1,9 +1,15 @@
 <div class="content">
   <h2>Login to your account</h2>
-  <form>
-    <input type="text" title="username" placeholder="username" />
-    <input type="password" title="username" placeholder="password" />
-    <button type="submit" class="btn">Login</button>
+  <form (submit)="login(loginForm)" #loginForm="ngForm">
+  	<mat-form-field>
+    <input matInput type="email" title="username" placeholder="username" name = "email" ngModel email required />
+    <mat-error>Please enter valid email</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+    <input matInput type="password" title="username" placeholder="password" minlength="6" name = "password" ngModel required />
+	<mat-error>Please enter password > 6 characters</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color = "accent" type="submit" class="btn">Login</button>
     <a class="forgot" href="#">Forgot Username?</a>
      <button mat-raised-button color="accent" (click)="gotoComponent()" matTooltip="Register">Register</button>
   </form>
