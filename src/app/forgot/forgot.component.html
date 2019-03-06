@@ -1,6 +1,7 @@
-  <form (submit)="forgot(forgotForm)" #forgotForm="ngForm">
+<form (submit)="forgot(forgotForm)" #forgotForm="ngForm">
   	<mat-form-field>
     <input matInput type="email" title="username" placeholder="username" name = "email" ngModel email required />
     <mat-error>Please enter account email</mat-error>
     </mat-form-field>
+    <button mat-raised-button color="accent" type="submit"></button>
 </form>

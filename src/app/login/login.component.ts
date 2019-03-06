@@ -7,12 +7,12 @@ import{NgForm} from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-	x:string
   constructor(private router:Router) { }
-  gotoComponent(x:string){
-  	this.x = x;
-  	this.router.navigate(["/"] + x);
+  gotoRegister(){
+  	this.router.navigate(["/register"]);
+  }
+    gotoForgot(){
+    this.router.navigate(["/forgot"]);
   }
   ngOnInit() {
   }

@@ -13,7 +13,7 @@ import { RegisterComponent } from './register/register.component';
 import { ItemComponent } from './item/item.component';
 import { CartComponent } from './cart/cart.component';
 import { AccountComponent } from './account/account.component';
-
+import { ForgotComponent } from './forgot/forgot.component';
 const routes: Routes = [
    	{path: 'homepage',component: HomepageComponent},
    	{path: 'about',component: AboutComponent},
@@ -27,7 +27,8 @@ const routes: Routes = [
 	{path: 'register', component: RegisterComponent},
 	{path: 'item', component: ItemComponent},
 	{path: 'cart', component: CartComponent},
-	{path: 'account', component: AccountComponent}
+	{path: 'account', component: AccountComponent},
+	{path: 'forgot', component: ForgotComponent}
 	];
 
 @NgModule({

@@ -11,8 +11,6 @@
     </mat-form-field>
     <button mat-raised-button color = "accent" type="submit" class="btn">Login</button>
   </form>
-      <button mat-raised-button color = "accent" (click)="gotoComponent(forgot)">Forgot Username?</button>
-     <button mat-raised-button color="accent" (click)="gotoComponent(register)" matTooltip="Register">Register</button>
-     <h1>HI {{y}}</h1>
-     {{y}}
+      <button mat-raised-button color = "accent" (click)="gotoForgot()">Forgot Username?</button>
+     <button mat-raised-button color="accent" (click)="gotoRegister()" matTooltip="Register">Register</button>
 </div>
