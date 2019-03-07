@@ -90,6 +90,11 @@ app.get('/api/items', function(req, res) {
     res.json(data);
   });
 }) 
+app.get('/api/items:id', function(req, res) {
+  itemModel.find(function(err, data) {
+    res.json(data);
+  });
+}) 
 app.get('/api/bugs', function(req, res) {
   bugModel.find(function(err, data) {
     res.json(data);
@@ -115,6 +120,30 @@ app.post('/api/users',function(req,res)
     });
     res.status(201).send("user added");
 })
+ var nodemailer = require('nodemailer');
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'angularproject19@gmail.com',
+    pass: 'sh@rds3939'
+  }
+});
+
+var mailOptions = {
+  from: 'angularproject19@gmail.com',
+  to: 'angularproject19@gmail.com',
+  subject: 'Sending Email using Node.js',
+  text: 'That was easy!'
+};
+
+transporter.sendMail(mailOptions, function(error, info){
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Email sent: ' + info.response);
+  }
+}); 
+
 //have server listening at port 8081
 var server = app.listen(8081, function() {
   var host = server.address().address

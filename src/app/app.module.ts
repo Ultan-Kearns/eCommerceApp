@@ -28,7 +28,10 @@ import { OutdoorsComponent } from './outdoors/outdoors.component';
 import { ItemComponent } from './item/item.component';
 import { CartComponent } from './cart/cart.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { RegisterComponent } from './register/register.component'; 
+import {MatTooltipModule} from '@angular/material/tooltip'; 
+import { RegisterComponent } from './register/register.component';
+import { AccountComponent } from './account/account.component';
+import { ForgotComponent } from './forgot/forgot.component'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +46,9 @@ import { RegisterComponent } from './register/register.component';
     OutdoorsComponent,
     ItemComponent,
     CartComponent,
-    RegisterComponent
+    RegisterComponent,
+    AccountComponent,
+    ForgotComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +65,7 @@ import { RegisterComponent } from './register/register.component';
     HttpClientModule,
     HttpModule,
     MatFormFieldModule,
+    MatTooltipModule,
     
   ],
   providers: [RetrieveService,AuthenticationService,HttpClientModule,BugPostService],

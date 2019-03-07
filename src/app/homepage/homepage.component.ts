@@ -16,5 +16,4 @@ export class HomepageComponent implements OnInit {
       this.users = data;
     });
   }
-
 }

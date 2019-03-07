@@ -9,6 +9,7 @@ export class AppComponent {
   title = 'eCommerceApp';
 
   constructor(  private router:Router){
+  	//navigate to homepage on load
   	this.router.navigate(["/","homepage"])
   }
 }

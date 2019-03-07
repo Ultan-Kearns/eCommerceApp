@@ -20,8 +20,12 @@ export class RegisterComponent implements OnInit {
   		form.reset();
   		alert("User has been added");
   	}
-  	else{
-  		alert("Age must be 18 or over")
+  	else if(parseInt(form.value.age) < 18){
+  		alert("Age must be 18 or over");
   	}
+    else
+    {
+      alert("Required fields missing");
+    }
   }
 }
