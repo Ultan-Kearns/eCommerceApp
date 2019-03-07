@@ -144,7 +144,7 @@ transporter.sendMail(mailOptions, function(error, info){
   }
 }); 
 
-//have server listening at port 8081
+//have server listening at port  8081
 var server = app.listen(8081, function() {
   var host = server.address().address
    var port = server.address().port
