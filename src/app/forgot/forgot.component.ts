@@ -6,7 +6,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./forgot.component.scss']
 })
 export class ForgotComponent implements OnInit {
-
+  require:any;
   constructor() { }
 
   ngOnInit() {
@@ -20,5 +20,6 @@ export class ForgotComponent implements OnInit {
   	else{
   		alert("Please enter email you signed up with")
   	}
-  }
+
+ 
 }
