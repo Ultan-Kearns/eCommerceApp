@@ -120,7 +120,8 @@ app.post('/api/users',function(req,res)
     });
     res.status(201).send("user added");
 })
- var nodemailer = require('nodemailer');
+app.get('/api/send',function(req,res){
+var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -128,7 +129,6 @@ var transporter = nodemailer.createTransport({
     pass: 'sh@rds3939'
   }
 });
-
 var mailOptions = {
   from: 'angularproject19@gmail.com',
   to: 'angularproject19@gmail.com',
@@ -142,8 +142,9 @@ transporter.sendMail(mailOptions, function(error, info){
   } else {
     console.log('Email sent: ' + info.response);
   }
-}); 
-
+});
+res.status(200).send("email sent"); 
+});
 //have server listening at port 8081
 var server = app.listen(8081, function() {
   var host = server.address().address
