@@ -10,7 +10,7 @@ export class RetrieveService {
 
   constructor(private http:HttpClient) { 
   }
-  getUserData():Observable<any>{
+  getUsersData():Observable<any>{
   	return this.http.get("http://localhost:8081/api/users");
   }
   getOrderData():Observable<any>{
@@ -24,6 +24,10 @@ export class RetrieveService {
   }
   //for specific item
   getItemData(id:string):Observable<any>{
-    return this.http.get("http://localhost:8081/api/items:" + id);
+    return this.http.get("http://localhost:8081/api/items" + id);
+  }
+    //for specific user
+  getUserData(email:string):Observable<any>{
+    return this.http.get("http://localhost:8081/api/users" + email);
   }
 }

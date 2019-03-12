@@ -23,7 +23,6 @@
     "@angular/platform-browser-dynamic": "^7.2.5",
     "@angular/router": "^7.2.5",
     "core-js": "^2.6.5",
-    "emailjs": "^2.2.0",
     "express": "^4.16.4",
     "mkdirp": "^0.5.1",
     "mongoose": "^5.4.14",

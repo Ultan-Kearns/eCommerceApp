@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
     //check user is 18
   	if(form.valid && parseInt(form.value.age) >= 18)
   	{
-  		this.post.registerUser(form.value.age,form.value.name,form.value.email,form.value.address,form.value.password).subscribe();
+  		this.post.registerUser(form.value.age,form.value.name,form.value.email,form.value.address,form.value.password,form.value.email).subscribe();
   		form.reset();
   		alert("User has been added");
   	}

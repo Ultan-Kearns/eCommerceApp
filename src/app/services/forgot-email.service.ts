@@ -8,6 +8,6 @@ export class ForgotEmailService {
 
   constructor(private http:HttpClient) { }
   sendMail(email:string){
-  	 this.http.get("localhost:8081/api/send");
+  	 this.http.get("localhost:8081/api/users:" + email);
   }
 }

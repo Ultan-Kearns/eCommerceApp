@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import{Router} from '@angular/router';
+import { RetrieveService } from '../services/retrieve.service';
 import{NgForm} from '@angular/forms';
 @Component({
   selector: 'app-login',
@@ -7,7 +8,7 @@ import{NgForm} from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  constructor(private router:Router) { }
+  constructor(private router:Router,private rs:RetrieveService) { }
   gotoRegister(){
   	this.router.navigate(["/register"]);
   }
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
   	if(form.valid)
   	{
   		alert("works")
+      this.rs.getUserData(form.value.email);
   	}
   	else{
   		alert("not working")

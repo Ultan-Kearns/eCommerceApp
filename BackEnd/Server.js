@@ -34,11 +34,12 @@ var orderSchema = new Schema({
 var userSchema = new Schema({
   age: { type: Number, min: 18, index: true },
   name: { type: String, default: 'guest' },
-  email:{type: String},
+  email:{type:String},
   address:{type:String},
   password:{type:String},
   dateCreated: { type: Date, default: Date.now },
-})
+  "_id":{type:String},
+},{"_id":false})
 //define review schema
 var reviewSchema = new Schema({
   Id: { type: Number, default: 0 },
@@ -46,19 +47,18 @@ var reviewSchema = new Schema({
   content: { type: String, default: 'Blank' },
   //leave default at 0 as 0 will indicate no review left
   rating: { type: Number, default: 0 },
-})
+},{"_id": Number})
 var itemSchema = new Schema({
   id:{type: Number, default:0},
   price:{type: Number, default: 10},
   name:{type: String, default: 'undefined'},
   category:{type: String, default: 'Miscellaneous'},
   rating:{type: Number, default: 3}
-})
+},{"_id": Number})
 var bugSchema = new Schema({
   subject:{type:String,default:''},
-  issue:{type:String,default:''},
-  id:{type:String, default: '0'}
-})
+  issue:{type:String,default:''}
+},{"_id": Number})
 //define models for retrieval from DB
 var reviewModel = mongoose.model('reviews', reviewSchema);
 var orderModel = mongoose.model('orders', orderSchema);
@@ -90,12 +90,26 @@ app.get('/api/items', function(req, res) {
     res.json(data);
   });
 }) 
-app.get('/api/items:id', function(req, res) {
-  itemModel.find(function(err, data) {
-    res.json(data);
+app.get('/api/items/:id', function(req, res) {
+    itemModel.findById(req.params.id,
+      function(err,data){
+        if(err)
+          res.status(500,"Error " + err)
+        else
+          res.json(data)
+      })
+  });
+app.get('/api/users/:name', function(req, res) {
+  userModel.find(function(err, name) {
+    res.json(name);
   });
 }) 
 app.get('/api/bugs', function(req, res) {
+  bugModel.find(function(err, data) {
+    res.json(data);
+  });
+})
+app.get('/api/bugs/:id', function(req, res) {
   bugModel.find(function(err, data) {
     res.json(data);
   });
@@ -109,7 +123,7 @@ app.post('/api/bugs',function(req,res)
     });
     res.status(201).send("Bug added");
 })
-app.post('/api/users',function(req,res)
+app.post('/api/users',function(req,res,next)
 {
   userModel.create({
     age:req.body.age,
@@ -120,8 +134,9 @@ app.post('/api/users',function(req,res)
     });
     res.status(201).send("user added");
 })
-app.get('/api/send',function(req,res){
+app.get('/api/send:email',function(req,res,email){
 var nodemailer = require('nodemailer');
+var mail = email;
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -131,11 +146,10 @@ var transporter = nodemailer.createTransport({
 });
 var mailOptions = {
   from: 'angularproject19@gmail.com',
-  to: 'angularproject19@gmail.com',
+  to: "Ultankearns@gmail.com",
   subject: 'Sending Email using Node.js',
-  text: 'That was easy!'
+  text: 'Your password is: '
 };
-
 transporter.sendMail(mailOptions, function(error, info){
   if (error) {
     console.log(error);
@@ -143,7 +157,7 @@ transporter.sendMail(mailOptions, function(error, info){
     console.log('Email sent: ' + info.response);
   }
 });
-res.status(200).send("email sent"); 
+res.status(200).send("email sent" + mail); 
 });
 //have server listening at port  8081
 var server = app.listen(8081, function() {

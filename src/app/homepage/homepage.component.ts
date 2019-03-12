@@ -12,7 +12,7 @@ export class HomepageComponent implements OnInit {
   }
   ngOnInit() {
   	  //get uesrs on intialization
-    this.rs.getUserData().subscribe(data => {
+    this.rs.getUsersData().subscribe(data => {
       this.users = data;
     });
   }
