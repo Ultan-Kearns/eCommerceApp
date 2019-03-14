@@ -18,7 +18,7 @@ export class SupportComponent implements OnInit {
   	if(form.valid)
   	{
       //need make id unique
-  		this.post.postBug(form.value.title,form.value.content).subscribe();
+  		this.post.postBug(form.value.title,form.value.content,0).subscribe();
   		form.reset();
   		alert("Bug added we will try to fix soon!");
   	}

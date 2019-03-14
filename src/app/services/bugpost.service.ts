@@ -10,8 +10,8 @@ export class BugPostService {
   constructor(private http:HttpClient) { 
   }
   //post bug
-  postBug(subject:string,issue:string): Observable<any> {
-  	const bug:Bug = {subject:subject,issue:issue};
+  postBug(subject:string,issue:string,id:number): Observable<any> {
+  	const bug:Bug = {subject:subject,issue:issue,id:id};
   	return this.http.post("http://localhost:8081/api/bugs/",bug);
   }
 }

@@ -38,7 +38,7 @@ var userSchema = new Schema({
   address:{type:String},
   password:{type:String},
   dateCreated: { type: Date, default: Date.now },
-  "_id":{type:String},
+  _id:{type:String},
 },{"_id":false})
 //define review schema
 var reviewSchema = new Schema({
@@ -53,12 +53,12 @@ var itemSchema = new Schema({
   price:{type: Number, default: 10},
   name:{type: String, default: 'undefined'},
   category:{type: String, default: 'Miscellaneous'},
-  rating:{type: Number, default: 3}
-},{"_id": Number})
+  rating:{type: Number, default: 3},
+},{"_id":Number})
 var bugSchema = new Schema({
   subject:{type:String,default:''},
   issue:{type:String,default:''}
-},{"_id": Number})
+},{_id: Number})
 //define models for retrieval from DB
 var reviewModel = mongoose.model('reviews', reviewSchema);
 var orderModel = mongoose.model('orders', orderSchema);
@@ -99,11 +99,12 @@ app.get('/api/items/:id', function(req, res) {
           res.json(data)
       })
   });
-app.get('/api/users/:name', function(req, res) {
-  userModel.find(function(err, name) {
-    res.json(name);
-  });
-}) 
+app.get('/api/users/:id', function(req, res) {
+  userModel.findById(req.params.id,
+    function(err, data) {
+    res.json(data);
+  })
+});
 app.get('/api/bugs', function(req, res) {
   bugModel.find(function(err, data) {
     res.json(data);
@@ -120,6 +121,7 @@ app.post('/api/bugs',function(req,res)
       subject: req.body.subject,
       issue:req.body.issue,
       id:req.body.id,
+      _id:req.body.id
     });
     res.status(201).send("Bug added");
 })
@@ -130,13 +132,14 @@ app.post('/api/users',function(req,res,next)
     name: req.body.name,
     email:req.body.email,
     address:req.body.address,
-    password:req.body.password
+    password:req.body.password,
+    _id:req.body._id
     });
     res.status(201).send("user added");
 })
-app.get('/api/send:email',function(req,res,email){
+app.get('/api/user/:id',function(req,res,id){
 var nodemailer = require('nodemailer');
-var mail = email;
+var mail = id;
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -146,7 +149,7 @@ var transporter = nodemailer.createTransport({
 });
 var mailOptions = {
   from: 'angularproject19@gmail.com',
-  to: "Ultankearns@gmail.com",
+  to: email,
   subject: 'Sending Email using Node.js',
   text: 'Your password is: '
 };
