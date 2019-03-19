@@ -28,6 +28,6 @@ export class RetrieveService {
   }
     //for specific user
   getUserData(email:string):Observable<any>{
-    return this.http.get("http://localhost:8081/api/users" + email);
+    return this.http.get("http://localhost:8081/api/users/" + email);
   }
 }

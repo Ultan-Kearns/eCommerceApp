@@ -58,7 +58,7 @@ var itemSchema = new Schema({
 var bugSchema = new Schema({
   subject:{type:String,default:''},
   issue:{type:String,default:''}
-},{_id: Number})
+})
 //define models for retrieval from DB
 var reviewModel = mongoose.model('reviews', reviewSchema);
 var orderModel = mongoose.model('orders', orderSchema);
@@ -82,6 +82,7 @@ app.get('/api/orders', function(req, res) {
 })
 app.get('/api/reviews', function(req, res) {
   reviewModel.find(function(err, data) {
+    console.log("REVIEW")
     res.json(data);
   });
 })
@@ -100,14 +101,36 @@ app.get('/api/items/:id', function(req, res) {
       })
   });
 app.get('/api/users/:id', function(req, res) {
+  console.log("Retrieving")
   userModel.findById(req.params.id,
     function(err, data) {
-    res.json(data);
-  })
+      if(err)
+        res.status(404,"Post not fount",err)
+      else
+         var nodemailer = require('nodemailer');
+var mail = data.email;
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'angularproject19@gmail.com',
+    pass: 'sh@rds3939'
+  }
 });
-app.get('/api/bugs', function(req, res) {
-  bugModel.find(function(err, data) {
-    res.json(data);
+var mailOptions = {
+  from: 'angularproject19@gmail.com',
+  to: "ultankearns@gmail.com",
+  subject: 'Sending Email using Node.js',
+  text: 'Your password is: ' + data.password
+};
+transporter.sendMail(mailOptions, function(error, info){
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Email sent: ' + data.email);
+  }
+});
+res.status(200).send("email sent" +  data.email); 
+
   });
 })
 app.get('/api/bugs/:id', function(req, res) {
@@ -120,7 +143,6 @@ app.post('/api/bugs',function(req,res)
   bugModel.create({
       subject: req.body.subject,
       issue:req.body.issue,
-      id:req.body.id,
       _id:req.body.id
     });
     res.status(201).send("Bug added");
@@ -137,31 +159,11 @@ app.post('/api/users',function(req,res,next)
     });
     res.status(201).send("user added");
 })
-app.get('/api/user/:id',function(req,res,id){
-var nodemailer = require('nodemailer');
-var mail = id;
-var transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: 'angularproject19@gmail.com',
-    pass: 'sh@rds3939'
-  }
-});
-var mailOptions = {
-  from: 'angularproject19@gmail.com',
-  to: email,
-  subject: 'Sending Email using Node.js',
-  text: 'Your password is: '
-};
-transporter.sendMail(mailOptions, function(error, info){
-  if (error) {
-    console.log(error);
-  } else {
-    console.log('Email sent: ' + info.response);
-  }
-});
-res.status(200).send("email sent" + mail); 
-});
+app.get('/api/users/:id'),function(req,res){
+userModel.findById(req.params.id,(function(err, data) {
+
+}))
+}
 //have server listening at port  8081
 var server = app.listen(8081, function() {
   var host = server.address().address
