@@ -104,10 +104,10 @@ app.get('/api/users/:id', function(req, res) {
   console.log("Retrieving")
   userModel.findById(req.params.id,
     function(err, data) {
-      if(err)
-        res.status(404,"Post not fount",err)
-      else
-         var nodemailer = require('nodemailer');
+      if(data == null)
+        res.status(404,"Post not fount",err);
+else{
+var nodemailer = require('nodemailer');
 var mail = data.email;
 var transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -130,7 +130,7 @@ transporter.sendMail(mailOptions, function(error, info){
   }
 });
 res.status(200).send("email sent" +  data.email); 
-
+}
   });
 })
 app.get('/api/bugs/:id', function(req, res) {
