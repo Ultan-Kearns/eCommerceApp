@@ -21,7 +21,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-//define order schema
+//define order scheema
 var orderSchema = new Schema({
   id: { type: Number, default: 1 },
   name: { type: String, default: 'guest' },
