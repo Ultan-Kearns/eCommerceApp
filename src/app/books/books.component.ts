@@ -12,7 +12,7 @@ export class BooksComponent implements OnInit {
   ngOnInit() {
   	  	    //get items on load
     this.rs.getItemsData().subscribe(data => {
-      this.items = data;
+      this.item = data;
 });
   }
 
