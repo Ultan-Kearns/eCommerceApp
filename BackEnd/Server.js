@@ -49,12 +49,12 @@ var reviewSchema = new Schema({
   rating: { type: Number, default: 0 },
 },{"_id": Number})
 var itemSchema = new Schema({
-  id:{type: Number, default:0},
+  item:{type: Number, default:2},
   price:{type: Number, default: 10},
   name:{type: String, default: 'undefined'},
   category:{type: String, default: 'Miscellaneous'},
   rating:{type: Number, default: 3},
-},{"_id":Number})
+})
 var bugSchema = new Schema({
   subject:{type:String,default:''},
   issue:{type:String,default:''}
@@ -92,12 +92,13 @@ app.get('/api/items', function(req, res) {
   });
 }) 
 app.get('/api/items/:id', function(req, res) {
-    itemModel.findById(req.params.id,
+    itemModel.find(req.params.item,
       function(err,data){
         if(err)
           res.status(500,"Error " + err)
         else
           res.json(data)
+
       })
   });
 app.get('/api/users/:id', function(req, res) {
@@ -105,7 +106,7 @@ app.get('/api/users/:id', function(req, res) {
   userModel.findById(req.params.id,
     function(err, data) {
       if(data == null)
-        res.status(404,"Post not fount",err);
+        res.status(404,"User not found",err);
 else{
 var nodemailer = require('nodemailer');
 var mail = data.email;

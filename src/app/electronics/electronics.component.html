@@ -1,8 +1,20 @@
 <div class="content">
   <h1>Welcome to electronics</h1>
   <div class="deals">
-    <mat-card>
-      <mat-card-content>Deals in electronics</mat-card-content>
-      <img src="assets/Images/macbook.jpg" alt="image" width="300" height="400">
-      <h3>2017 macbook pro for only £1300</h3>
-    </mat-card>
+<mat-accordion multi="true" *ngIf="items.length > 0">
+  <div *ngFor="let item of items">
+    <div *ngIf="item.category == 'Electronics'">
+      <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+          {{item.name}}
+        </mat-expansion-panel-header>
+        <p>{{ item.price }}</p>
+        <p>{{ item.category }}</p>
+        <p>{{ item.rating }}</p>
+       	<img src = "{{item.image}}" alt = "Picture of item" />
+      </mat-expansion-panel>
+    </div>
+  </div>
+</mat-accordion>
+ <p class="info-text mat-body-1" *ngIf="items.length <= 0">No items added yet!</p>
+</div>
