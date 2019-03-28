@@ -1,9 +1,23 @@
 <div class="content">
   <h1>Welcome to the sports section</h1>
   <img src="assets/Images/ski.jpg" alt="image" width="500" height="500">
-  <div class="deals">
-    <mat-card>
-      <mat-card-content>Deals in sports</mat-card-content>
-      <img src="assets/Images/jacket.jpg" alt="image" width="300" height="400">
-      <h3>north face jacket from £60</h3>
-    </mat-card>
+  <mat-accordion>
+  <div *ngFor="let item of items">
+    <div *ngIf="item.category == 'Sports'">
+      <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+          {{item.name}}
+        </mat-expansion-panel-header>
+        <p>{{ item.price }}</p>
+        <p>{{ item.category }}</p>
+        <p>{{ item.rating }}</p>
+       	<img src = "{{item.image}}" height="300px" width="300px" alt = "Picture of item" />
+      </mat-expansion-panel>
+    </div>
+  </div>
+ <mat-action-row> 
+    <button color="warn">Add to cart</button>
+</mat-action-row>
+</mat-accordion>
+ <p class="info-text mat-body-1" *ngIf="items.length <= 0">No items added yet!</p>
+</div>

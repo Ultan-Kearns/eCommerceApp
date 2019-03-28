@@ -11,10 +11,13 @@
         <p>{{ item.price }}</p>
         <p>{{ item.category }}</p>
         <p>{{ item.rating }}</p>
-       	<img src = "{{item.image}}" alt = "Picture of item" />
+       	<img src = "{{item.image}}" height="300px" width="300px" alt = "Picture of item" />
       </mat-expansion-panel>
     </div>
   </div>
+ <mat-action-row> 
+    <button color="warn">Add to cart</button>
+</mat-action-row>
 </mat-accordion>
  <p class="info-text mat-body-1" *ngIf="items.length <= 0">No items added yet!</p>
 </div>
