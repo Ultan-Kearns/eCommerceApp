@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var mongoDB = 'mongodb://emart:G00343745@ds113375.mlab.com:13375/ecommerceapp';
 var Schema = mongoose.Schema;
+var router = express.Router();
 mongoose.connect(mongoDB);
 //Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({
@@ -165,9 +166,25 @@ userModel.findById(req.params.id,(function(err, data) {
 
 }))
 }
+
+router.get('/get-data', function(req, res, next) {
+
+});
+
+router.post('/update', function(req, res, next) {
+
+});
+
+router.post('/insert', function(req, res, next) {
+
+});
+
+router.post('/delete', function(req, res, next) {
+
+});
 //have server listening at port  8081
 var server = app.listen(8081, function() {
-  var host = server.address().address
-   var port = server.address().port
+var host = server.address().address
+  var port = server.address().port
   console.log("Example app listening at http://%s:%s", host, port)
 })
