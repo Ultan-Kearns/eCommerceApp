@@ -2,13 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import{Router} from '@angular/router';
 import { RetrieveService } from '../services/retrieve.service';
 import{NgForm} from '@angular/forms';
+import { Title } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  constructor(private router:Router,private rs:RetrieveService) { }
+      private page:string = "Login";
+  constructor(private router:Router,private rs:RetrieveService,private ts:Title) { }
   gotoRegister(){
   	this.router.navigate(["/register"]);
   }
@@ -16,6 +19,9 @@ export class LoginComponent implements OnInit {
     this.router.navigate(["/forgot"]);
   }
   ngOnInit() {
+
+    this.ts.setTitle(this.page);
+    this.ts.getTitle();
   }
   login(form:NgForm)
   {

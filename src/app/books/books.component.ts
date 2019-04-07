@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RetrieveService } from '../services/retrieve.service';
+
+import { Title } from '@angular/platform-browser';
+
+
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
@@ -7,13 +11,16 @@ import { RetrieveService } from '../services/retrieve.service';
 })
 export class BooksComponent implements OnInit {
   private item:any = [];
-  constructor(private rs:RetrieveService) { }
+  private page:string = "Books"
+  constructor(private rs:RetrieveService,private ts:Title) { }
 
   ngOnInit() {
   	  	    //get items on load
     this.rs.getItemsData().subscribe(data => {
       this.item = data;
 });
+    this.ts.setTitle(this.page);
+    this.ts.getTitle();
   }
 
 }

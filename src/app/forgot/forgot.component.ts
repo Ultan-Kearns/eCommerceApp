@@ -1,14 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { RetrieveService } from '../services/retrieve.service'
+
+import { Title } from '@angular/platform-browser';
+
+
 @Component({
   selector: 'app-forgot',
   templateUrl: './forgot.component.html',
   styleUrls: ['./forgot.component.scss']
 })
 export class ForgotComponent implements OnInit {
-  constructor(private rs:RetrieveService) { }
+  private page:string = "Forgot";
+  constructor(private rs:RetrieveService,private ts:Title) { }
   ngOnInit() {
+    this.ts.setTitle(this.page);
+    this.ts.getTitle();
   }
   forgot(form:NgForm)
   {

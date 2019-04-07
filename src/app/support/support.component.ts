@@ -1,16 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { BugPostService } from '../services/bugpost.service';
+
+import { Title } from '@angular/platform-browser';
+
+
 @Component({
   selector: 'app-support',
   templateUrl: './support.component.html',
   styleUrls: ['./support.component.scss']
 })
 export class SupportComponent implements OnInit {
-
-  constructor(private post:BugPostService) { }
+  private page:string = "Support";
+  constructor(private post:BugPostService,private ts:Title) { }
 
   ngOnInit() {
+    this.ts.setTitle(this.page);
+    this.ts.getTitle();
   }
   onAddBug(form:NgForm)
   {

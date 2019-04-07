@@ -1,15 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { RegisterService } from '../services/register.service';
+
+import { Title } from '@angular/platform-browser';
+
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  constructor(private post:RegisterService) { }
+  private page:string = "Register";
+  constructor(private post:RegisterService,private ts:Title) { }
 
   ngOnInit() {
+    this.ts.setTitle(this.page);
+    this.ts.getTitle();
   }
   onAddUser(form:NgForm)
   {
