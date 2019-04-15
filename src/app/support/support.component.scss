@@ -1,9 +1,11 @@
 .text{
-	height: 300px;
-	width: 400px;
-	margin-top: 4%;
-	margin-bottom: 10%;
 	resize: none;
-	margin-left: auto;
 	margin-right:auto;
+	margin-left:auto;
+	margin-bottom:20%;
+	border:2px solid black;
+}
+#body{	
+	height:250px;
+	width:500px
 }

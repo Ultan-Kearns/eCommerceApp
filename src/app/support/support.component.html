@@ -7,14 +7,12 @@
 <form (submit)="onAddBug(bugForm)" #bugForm="ngForm">
   <h3>Title of complaint:</h3>
   <mat-form-field>
-    <textarea matInput placeholder="Enter subject of complaint: " name="title" id="subject" ngModel required #subject="ngModel"
-      rows="4" minlength="5" maxlength="20"></textarea>
+    <textarea matInput placeholder="Enter subject of complaint: " name="title" ngModel required #subject="ngModel"
+      rows="4" minlength="5" maxlength="20" class="text"></textarea>
     <mat-error>Please enter a subject title > 5 characters</mat-error>
-  </mat-form-field>
-  <mat-form-field>
     <br>
-    <textarea matInput placeholder="Enter issue: " name="content" ngModel required #issue="ngModel"
-       minlength="10" maxlength="200" class = "text"></textarea>
+    <textarea matInput placeholder="Enter issue: "  id="body" name="content" ngModel required #issue="ngModel"
+       rows = "4" minlength="10" maxlength="200" class = "text"></textarea>
     <mat-error>Please enter a bug issue > 10 characters</mat-error>
   </mat-form-field>
   <br>

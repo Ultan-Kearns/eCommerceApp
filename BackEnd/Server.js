@@ -135,7 +135,7 @@ res.status(200).send("email sent" +  data.email);
 }
   });
 })
-app.get('/api/bugs/:id', function(req, res) {
+app.get('/api/bugs/', function(req, res) {
   bugModel.find(function(err, data) {
     res.json(data);
   });
