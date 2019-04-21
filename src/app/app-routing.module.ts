@@ -10,7 +10,6 @@ import { SportsComponent} from './sports/sports.component';
 import {BooksComponent} from './books/books.component';
 import {ElectronicsComponent} from './electronics/electronics.component';
 import { RegisterComponent } from './register/register.component'; 
-import { ItemComponent } from './item/item.component';
 import { CartComponent } from './cart/cart.component';
 import { AccountComponent } from './account/account.component';
 import { ForgotComponent } from './forgot/forgot.component';
@@ -25,7 +24,6 @@ const routes: Routes = [
 	{path: 'books', component: BooksComponent},
 	{path: 'electronics', component: ElectronicsComponent},
 	{path: 'register', component: RegisterComponent},
-	{path: 'item', component: ItemComponent},
 	{path: 'cart', component: CartComponent},
 	{path: 'account', component: AccountComponent},
 	{path: 'forgot', component: ForgotComponent}

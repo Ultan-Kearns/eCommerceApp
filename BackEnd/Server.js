@@ -161,9 +161,9 @@ app.post('/api/users',function(req,res,next)
     });
     res.status(201).send("user added");
 })
-app.get('/api/users/:id'),function(req,res){
+app.get('/api/users/:id/:password'),function(req,res){
 userModel.findById(req.params.id,(function(err, data) {
-
+  
 }))
 }
 

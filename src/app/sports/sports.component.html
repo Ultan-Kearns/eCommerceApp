@@ -5,19 +5,19 @@
   <div *ngFor="let item of items">
     <div *ngIf="item.category == 'Sports'">
       <mat-expansion-panel [expanded]="true">
-        <mat-expansion-panel-header>
-          {{item.name}}
-        </mat-expansion-panel-header>
-        <p>{{ item.price }}</p>
-        <p>{{ item.category }}</p>
-        <p>{{ item.rating }}</p>
-       	<img src = "{{item.image}}" height="300px" width="300px" alt = "Picture of item" />
+        <div class = "itemContent">
+          <h1>{{item.name}}</h1>
+          <p>{{ item.price }}</p>
+          <p>{{ item.category }}</p>
+          <p>{{ item.rating }}</p>
+          <img src = "{{item.image}}" height="300px" width="300px" alt = "Picture of item" />
+           <div class = "button"> 
+    <button color="warn">Add to cart</button>
+</div>
+         </div>
       </mat-expansion-panel>
     </div>
   </div>
- <mat-action-row> 
-    <button color="warn">Add to cart</button>
-</mat-action-row>
 </mat-accordion>
  <p class="info-text mat-body-1" *ngIf="items.length <= 0">No items added yet!</p>
 </div>

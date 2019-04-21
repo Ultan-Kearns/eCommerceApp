@@ -25,7 +25,6 @@ import { ElectronicsComponent } from './electronics/electronics.component';
 import { BooksComponent } from './books/books.component';
 import { SportsComponent } from './sports/sports.component';
 import { OutdoorsComponent } from './outdoors/outdoors.component';
-import { ItemComponent } from './item/item.component';
 import { CartComponent } from './cart/cart.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip'; 
@@ -44,7 +43,6 @@ import { ForgotComponent } from './forgot/forgot.component';
     BooksComponent,
     SportsComponent,
     OutdoorsComponent,
-    ItemComponent,
     CartComponent,
     RegisterComponent,
     AccountComponent,

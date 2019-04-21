@@ -1,27 +1,27 @@
-<div class = "content">
-<form class="Search-form">
-  <mat-form-field class="Search">
-    <input type = "text" ng-model="searchBox">
-  </mat-form-field>
-</form>
-<!-- Start the display for books -->
-<mat-accordion multi="true" *ngIf="items.length > 0">
-  <div *ngFor="let item of items">
-    <div *ngIf="item.category == 'Books'">
-      <mat-expansion-panel [expanded]="true">
-        <mat-expansion-panel-header>
-          {{item.name}}
-        </mat-expansion-panel-header>
-        <p>{{ item.price }}</p>
-        <p>{{ item.category }}</p>
-        <p>{{ item.rating }}</p>
-        <img src = "{{item.image}}" height="300px" width="300px" alt = "Picture of item" />
-      </mat-expansion-panel>
+<div class="content">
+  <form class="Search-form">
+    <mat-form-field class="Search">
+      <input type="text" ng-model="searchBox">
+    </mat-form-field>
+  </form>
+  <!-- Start the display for books -->
+  <mat-accordion multi="true" *ngIf="items.length > 0">
+    <div *ngFor="let item of items">
+      <div *ngIf="item.category == 'Books'">
+        <mat-expansion-panel [expanded]="true">
+          <div class="itemContent">
+            <h1>{{item.name}}</h1>
+            <p>{{ item.price }}</p>
+            <p>{{ item.category }}</p>
+            <p>{{ item.rating }}</p>
+            <img src="{{item.image}}" height="300px" width="300px" alt="Picture of item" />
+            <div class="button">
+              <button color="warn">Add to cart</button>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </div>
     </div>
-  </div>
- <mat-action-row> 
-    <button color="warn">Add to cart</button>
-</mat-action-row>
-</mat-accordion>
- <p class="info-text mat-body-1" *ngIf="items.length <= 0">No items added yet!</p>
+  </mat-accordion>
+  <p class="info-text mat-body-1" *ngIf="items.length <= 0">No items added yet!</p>
 </div>
