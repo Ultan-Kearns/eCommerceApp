@@ -14,14 +14,11 @@ export class DealsComponent implements OnInit {
   private page:string = "Deals"
   constructor(private router:Router,private rs:RetrieveService,private ts:Title) { }
   item:any;
-  gotoComponent(id:string)
-  {
-  	console.log("IN COMPONENT")
-    this.router.navigate(["/item"]);
-     this.rs.getItemData(id).subscribe(data => {
-      this.item = data;
-      console.log(data);
-    });
+  gotoElectronics(){
+    this.router.navigate(["/electronics"]);
+  }
+    gotoBooks(){
+    this.router.navigate(["/forgot"]);
   }
   ngOnInit() {
     this.ts.setTitle(this.page);

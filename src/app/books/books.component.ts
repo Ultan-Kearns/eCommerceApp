@@ -10,14 +10,14 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./books.component.scss']
 })
 export class BooksComponent implements OnInit {
-  private item:any = [];
+  private items:any = [];
   private page:string = "Books"
   constructor(private rs:RetrieveService,private ts:Title) { }
 
   ngOnInit() {
   	  	    //get items on load
     this.rs.getItemsData().subscribe(data => {
-      this.item = data;
+      this.items = data;
 });
     this.ts.setTitle(this.page);
     this.ts.getTitle();

@@ -28,7 +28,11 @@ export class LoginComponent implements OnInit {
   	if(form.valid)
   	{
   		alert("works")
-      this.rs.getUserData(form.value.email);
+
+      if(this.rs.getUserData(form.value.email))
+      {
+        alert("yes")
+      }
   	}
   	else{
   		alert("not working")

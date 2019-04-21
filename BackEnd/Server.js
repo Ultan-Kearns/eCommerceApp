@@ -163,7 +163,15 @@ app.post('/api/users',function(req,res,next)
 })
 app.get('/api/users/:id/:password'),function(req,res){
 userModel.findById(req.params.id,(function(err, data) {
-  
+          if(err){
+          res.status(500,"Error " + err)
+        }
+        else
+        {
+          var email = data.email;
+          var password = data.password;
+          res.send(json);
+        }
 }))
 }
 
