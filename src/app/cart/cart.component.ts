@@ -17,6 +17,7 @@ export class CartComponent implements OnInit {
   	  this.ts.getTitle();
 
       buy(){
+          //code for the buy will go here
       }
 
   }
