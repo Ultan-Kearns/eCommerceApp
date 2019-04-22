@@ -14,7 +14,11 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
   	this.ts.setTitle(this.page);
-  	this.ts.getTitle();
+  	  this.ts.getTitle();
+
+      buy(){
+      }
+
   }
 
 }
