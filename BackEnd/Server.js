@@ -132,8 +132,33 @@ transporter.sendMail(mailOptions, function(error, info){
 });
 res.status(200).send("email sent" +  data.email); 
 }
-  });
-})
+  })
+});
+
+app.get('/api/users/:id/:password', function(req, res) {
+  userModel.findById(req.params.id,
+    function(err, data) {
+  console.log("inside")
+       if(err){
+          res.status(500,"Error " + err)
+        }
+        else
+        {
+          //issue with password
+          console.log("WORKING "  + req.body.id + " " + data.id)
+          if(req.body.id == data.id)
+          {
+              res.send(json);
+          }
+          else
+          {          
+            res.status(500,"Error " + err)
+          }
+        }
+          }
+      )
+  }
+);
 app.get('/api/bugs/', function(req, res) {
   bugModel.find(function(err, data) {
     res.json(data);
@@ -160,27 +185,6 @@ app.post('/api/users',function(req,res,next)
     });
     res.status(201).send("user added");
 })
-app.get('/api/users/:id/'),function(req,res){
-userModel.findById(req.params.id(function(err, data) {
-  console.log("inside")
-       if(err){
-          res.status(500,"Error " + err)
-        }
-        else
-        {
-          console.log("WORKING")
-          if(req.params.password == data.password && req.params.id == data.id)
-          {
-              res.send(json);
-          }
-          else
-          {          
-            res.status(500,"Error " + err)
-          }
-        }
-}))
-}
-
 router.get('/get-data', function(req, res, next) {
 
 });
