@@ -10,7 +10,11 @@ export class AppComponent {
 
   constructor(  private router:Router){
   	//navigate to homepage on load
-  	this.router.navigate(["/","homepage"])
+  	  this.router.navigate(["/","homepage"])
+
+      //create a global array here ?
+      //and just have the items added to the array
+      //and added to the cart
   }
 }
 
