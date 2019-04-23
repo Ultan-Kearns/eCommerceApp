@@ -110,7 +110,6 @@ app.get('/api/users/:id', function(req, res) {
         res.status(404,"User not found",err);
 else{
 var nodemailer = require('nodemailer');
-var mail = data.email;
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -120,7 +119,7 @@ var transporter = nodemailer.createTransport({
 });
 var mailOptions = {
   from: 'angularproject19@gmail.com',
-  to: "ultankearns@gmail.com",
+  to: data.email,
   subject: 'Sending Email using Node.js',
   text: 'Your password is: ' + data.password
 };
@@ -161,16 +160,23 @@ app.post('/api/users',function(req,res,next)
     });
     res.status(201).send("user added");
 })
-app.get('/api/users/:id/:password'),function(req,res){
-userModel.findById(req.params.id,(function(err, data) {
-          if(err){
+app.get('/api/users/:id/'),function(req,res){
+userModel.findById(req.params.id(function(err, data) {
+  console.log("inside")
+       if(err){
           res.status(500,"Error " + err)
         }
         else
         {
-          var email = data.email;
-          var password = data.password;
-          res.send(json);
+          console.log("WORKING")
+          if(req.params.password == data.password && req.params.id == data.id)
+          {
+              res.send(json);
+          }
+          else
+          {          
+            res.status(500,"Error " + err)
+          }
         }
 }))
 }

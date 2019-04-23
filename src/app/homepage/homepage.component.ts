@@ -28,7 +28,7 @@ export class HomepageComponent implements OnInit {
     this.router.navigate(["/sports"]);
   }
       gotoOutdoors(){
-    this.router.navigate(["/outdoors"]);
+    this.router.navigate(["/outdoor"]);
   }
       gotoBooks(){
     this.router.navigate(["/books"]);

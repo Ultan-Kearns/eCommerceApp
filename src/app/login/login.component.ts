@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
   	{
   		alert("works")
 
-      if(this.rs.getUserData(form.value.email))
+      if(this.rs.loginUser(form.value.email,form.value.password))
       {
         alert("yes")
       }
