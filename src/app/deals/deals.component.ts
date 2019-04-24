@@ -18,7 +18,7 @@ export class DealsComponent implements OnInit {
     this.router.navigate(["/electronics"]);
   }
     gotoBooks(){
-    this.router.navigate(["/forgot"]);
+    this.router.navigate(["/books"]);
   }
   ngOnInit() {
     this.ts.setTitle(this.page);

@@ -115,16 +115,19 @@ console.log(mail);
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
+    //login
     user: 'angularproject19@gmail.com',
     pass: 'sh@rds3939'
   }
 });
 var mailOptions = {
+  //this sets up mail options
   from: 'angularproject19@gmail.com',
   to: mail,
   subject: 'Forgot E-mart password',
   text: 'Your password is: ' + data.password
 };
+//send response and log errors if any
 transporter.sendMail(mailOptions, function(error, info){
   if (error) {
     console.log(error);
