@@ -26,13 +26,17 @@ export class LoginComponent implements OnInit {
   //not getting called
   login(form:NgForm)
   {
-    alert("IN")
   	if(form.valid)
   	{
-  		alert("works")
-      //not working
       this.rs.loginUser(form.value.email,form.value.password).subscribe(data=>{
-        console.log(data);
+        if(data.email == form.value.email && data.password == form.value.password)
+        {
+        alert("Logged IN")
+      }
+      else
+      {
+        alert("Account or password incorrect")
+      }
       })
   	}
   	else{

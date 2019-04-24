@@ -144,16 +144,17 @@ app.get('/api/users/:id/:password', function(req, res) {
        if(err){
           res.status(500,"Error " + err)
         }
-        else
+        else if(data != null)
         {
-          //issue with getting parameters passed in
-          console.log("WORKING "  + data.password + " " + data.id +  " "+ req.params.id)
+          //compare user params to params in DB
           if(req.params.id == data.id && data.password == req.params.password)
           {
+            console.log("equals")
               res.json(data);
           }
           else{
-            res.json("Error")
+            console.log("error")
+            res.json("error")
             res.status(404,"User not found")
           }
         }
