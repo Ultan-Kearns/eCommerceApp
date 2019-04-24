@@ -23,16 +23,17 @@ export class LoginComponent implements OnInit {
     this.ts.setTitle(this.page);
     this.ts.getTitle();
   }
+  //not getting called
   login(form:NgForm)
   {
+    alert("IN")
   	if(form.valid)
   	{
   		alert("works")
-
-      if(this.rs.loginUser(form.value.email,form.value.password))
-      {
-        alert("yes")
-      }
+      //not working
+      this.rs.loginUser(form.value.email,form.value.password).subscribe(data=>{
+        console.log(data);
+      })
   	}
   	else{
   		alert("not working")

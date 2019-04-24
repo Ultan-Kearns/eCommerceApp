@@ -102,14 +102,16 @@ app.get('/api/items/:id', function(req, res) {
 
       })
   });
-app.get('/api/users/:id', function(req, res) {
-  console.log("Retrieving")
+app.get('/api/users/:id', function(req, res,next) {
+  console.log("Retrieving ID")
   userModel.findById(req.params.id,
     function(err, data) {
       if(data == null)
         res.status(404,"User not found",err);
 else{
 var nodemailer = require('nodemailer');
+var mail = data.email;
+console.log(mail);
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -119,8 +121,8 @@ var transporter = nodemailer.createTransport({
 });
 var mailOptions = {
   from: 'angularproject19@gmail.com',
-  to: data.email,
-  subject: 'Sending Email using Node.js',
+  to: mail,
+  subject: 'Forgot E-mart password',
   text: 'Your password is: ' + data.password
 };
 transporter.sendMail(mailOptions, function(error, info){
@@ -144,15 +146,15 @@ app.get('/api/users/:id/:password', function(req, res) {
         }
         else
         {
-          //issue with password
-          console.log("WORKING "  + req.body.id + " " + data.id)
-          if(req.body.id == data.id)
+          //issue with getting parameters passed in
+          console.log("WORKING "  + data.password + " " + data.id +  " "+ req.params.id)
+          if(req.params.id == data.id && data.password == req.params.password)
           {
-              res.send(json);
+              res.json(data);
           }
-          else
-          {          
-            res.status(500,"Error " + err)
+          else{
+            res.json("Error")
+            res.status(404,"User not found")
           }
         }
           }
