@@ -108,7 +108,7 @@ app.get('/api/users/:id', function(req, res,next) {
     function(err, data) {
       if(data == null)
         res.status(404,"User not found",err);
-else{
+else if(data.email == req.params.id){
 var nodemailer = require('nodemailer');
 var mail = data.email;
 console.log(mail);
@@ -134,6 +134,11 @@ transporter.sendMail(mailOptions, function(error, info){
 });
 res.status(200).send("email sent" +  data.email); 
 }
+else {
+              console.log("error")
+            res.json("error")
+            res.status(404,"User not found")
+          }
   })
 });
 

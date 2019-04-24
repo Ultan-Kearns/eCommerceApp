@@ -32,15 +32,18 @@ export class LoginComponent implements OnInit {
         if(data.email == form.value.email && data.password == form.value.password)
         {
         alert("Logged IN")
+        this.router.navigate(["/","homepage"])
       }
       else
       {
         alert("Account or password incorrect")
+        form.reset();
       }
       })
   	}
   	else{
   		alert("not working")
+      form.reset();
   	}
   }
 }
