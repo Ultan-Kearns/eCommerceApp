@@ -70,8 +70,9 @@ var bugSchema = new Schema({
 var reviewModel = mongoose.model('reviews', reviewSchema);
 var orderModel = mongoose.model('orders', orderSchema);
 var userModel = mongoose.model('users', userSchema);
-var itemModel = mongoose.model('items',itemSchema)
-var bugModel = mongoose.model('bugs',bugSchema)
+var itemModel = mongoose.model('items',itemSchema);
+var bugModel = mongoose.model('bugs',bugSchema);
+var cartModel = mongoose.model('cart',cartSchema);
 //send response 200 to show it is connected
 app.get('/', function(req, res) {
   res.status(200).send('Server works');
@@ -81,6 +82,12 @@ app.get('/api/users', function(req, res) {
   userModel.find(function(err, data) {
     res.json(data);
   });
+//retrive cart orders.
+app.get('api/cart',function(req,res){
+  cartModel.find(function(err,data){
+    res.json(data);
+  });
+});
 })
 app.get('/api/orders', function(req, res) {
   orderModel.find(function(err, data) {
