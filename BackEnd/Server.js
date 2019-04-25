@@ -108,28 +108,32 @@ app.get('/api/items/:id', function(req, res) {
 
       })
   });
-app.get('/api/users/:id', function(req, res) {
-  console.log("Retrieving")
+app.get('/api/users/:id', function(req, res,next) {
+  console.log("Retrieving ID")
   userModel.findById(req.params.id,
     function(err, data) {
       if(data == null)
         res.status(404,"User not found",err);
-else{
+else if(data.email == req.params.id){
 var nodemailer = require('nodemailer');
 var mail = data.email;
+console.log(mail);
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
+    //login
     user: 'angularproject19@gmail.com',
     pass: 'sh@rds3939'
   }
 });
 var mailOptions = {
+  //this sets up mail options
   from: 'angularproject19@gmail.com',
-  to: "ultankearns@gmail.com",
-  subject: 'Sending Email using Node.js',
+  to: mail,
+  subject: 'Forgot E-mart password',
   text: 'Your password is: ' + data.password
 };
+//send response and log errors if any
 transporter.sendMail(mailOptions, function(error, info){
   if (error) {
     console.log(error);
@@ -139,8 +143,39 @@ transporter.sendMail(mailOptions, function(error, info){
 });
 res.status(200).send("email sent" +  data.email); 
 }
-  });
-})
+else {
+              console.log("error")
+            res.json("error")
+            res.status(404,"User not found")
+          }
+  })
+});
+
+app.get('/api/users/:id/:password', function(req, res) {
+  userModel.findById(req.params.id,
+    function(err, data) {
+  console.log("inside")
+       if(err){
+          res.status(500,"Error " + err)
+        }
+        else if(data != null)
+        {
+          //compare user params to params in DB
+          if(req.params.id == data.id && data.password == req.params.password)
+          {
+            console.log("equals")
+              res.json(data);
+          }
+          else{
+            console.log("error")
+            res.json("error")
+            res.status(404,"User not found")
+          }
+        }
+          }
+      )
+  }
+);
 app.get('/api/bugs/', function(req, res) {
   bugModel.find(function(err, data) {
     res.json(data);
@@ -167,20 +202,6 @@ app.post('/api/users',function(req,res,next)
     });
     res.status(201).send("user added");
 })
-app.get('/api/users/:id/:password'),function(req,res){
-userModel.findById(req.params.id,(function(err, data) {
-          if(err){
-          res.status(500,"Error " + err)
-        }
-        else
-        {
-          var email = data.email;
-          var password = data.password;
-          res.send(json);
-        }
-}))
-}
-
 router.get('/get-data', function(req, res, next) {
 
 });

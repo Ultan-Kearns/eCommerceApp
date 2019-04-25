@@ -30,4 +30,7 @@ export class RetrieveService {
   getUserData(email:string):Observable<any>{
     return this.http.get("http://localhost:8081/api/users/" + email);
   }
+loginUser(email:string,password:string):Observable<any>{
+    return this.http.get("http://localhost:8081/api/users/" + email  + "/" + password);
+  }
 }

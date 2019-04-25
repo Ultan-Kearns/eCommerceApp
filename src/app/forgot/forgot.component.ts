@@ -19,20 +19,23 @@ export class ForgotComponent implements OnInit {
   }
   forgot(form:NgForm)
   {
-  	if(form.valid && form.value.email != null)
+    if(form.valid)
+    {
+  	if(form.value.email != null)
   	{
   		alert("Email being sent out now");
       this.rs.getUserData(form.value.email).subscribe(data => {
       console.log(data);
-      if(data == null)
+      if(form.value.email != data.email)
       alert("Email does not exist on account")
       else{  
       alert("Email sent to: " + form.value.email)
     }
     });
     }
-    else{
-      alert("Email cannot be blank")
+  }
+      else{
+      alert("Must be valid Email")
     }
   }
 }

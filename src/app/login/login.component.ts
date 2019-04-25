@@ -23,19 +23,27 @@ export class LoginComponent implements OnInit {
     this.ts.setTitle(this.page);
     this.ts.getTitle();
   }
+  //not getting called
   login(form:NgForm)
   {
   	if(form.valid)
   	{
-  		alert("works")
-
-      if(this.rs.getUserData(form.value.email))
-      {
-        alert("yes")
+      this.rs.loginUser(form.value.email,form.value.password).subscribe(data=>{
+        if(data.email == form.value.email && data.password == form.value.password)
+        {
+        alert("Logged IN")
+        this.router.navigate(["/","homepage"])
       }
+      else
+      {
+        alert("Account or password incorrect")
+        form.reset();
+      }
+      })
   	}
   	else{
   		alert("not working")
+      form.reset();
   	}
   }
 }

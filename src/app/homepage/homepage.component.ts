@@ -10,6 +10,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class HomepageComponent implements OnInit {
 	private users:any[];
+  loggedIn:boolean = false;
   constructor(private rs:RetrieveService,private router:Router,private ts:Title) { 
            console.log("USERS : " + this.users);
   }

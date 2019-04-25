@@ -69,4 +69,6 @@ import { ForgotComponent } from './forgot/forgot.component';
   providers: [RetrieveService,AuthenticationService,HttpClientModule,BugPostService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+ }
