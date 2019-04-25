@@ -31,6 +31,12 @@ var orderSchema = new Schema({
   price: { type: Number, default: 0 },
 })
 
+var cartSchema = new Schema({
+  id: {type: Number, default:1},
+  price: {type: Number, default:1},
+  dateCreated: {type: String, default: "2018-09-01" },
+})
+
 //define user schema 
 var userSchema = new Schema({
   age: { type: Number, min: 18, index: true },
