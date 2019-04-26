@@ -30,6 +30,7 @@ export class ForgotComponent implements OnInit {
       alert("Email does not exist on account")
       else{  
       alert("Email sent to: " + form.value.email)
+      form.reset();
     }
     });
     }
