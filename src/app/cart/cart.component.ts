@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RetrieveService } from '../services/retrieve.service';
 
 import { Title } from '@angular/platform-browser';
 
@@ -9,15 +10,20 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
+  items:any = [];
   page:string = "Cart";
-  constructor(private ts:Title) { }
+  constructor(private rs:RetrieveService, private ts:Title) { }
 
   ngOnInit() {
+    //get items on load
+    this.rs.getItemsData().subscribe(data => {
+      this.items = data;
+    });
   	this.ts.setTitle(this.page);
   	  this.ts.getTitle();
   }
 
-       buy(){
+       //buy(){
           //code for the buy will go here
-       }
+       //}
 }
