@@ -10,7 +10,7 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./electronics.component.scss']
 })
 export class ElectronicsComponent implements OnInit {
-  private items:any = [];
+  items:any = [];
   private page:string = "Electronics"
   constructor(private rs:RetrieveService,private ts:Title) { }
 
