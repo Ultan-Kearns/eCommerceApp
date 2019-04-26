@@ -103,7 +103,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/ecommerceapp/production/1556250261968-2019-04-26T03:44:21.968Z/ecommerceapp.zip"
+          "S3Key": "serverless/ecommerceapp/production/1556251979590-2019-04-26T04:12:59.590Z/ecommerceapp.zip"
         },
         "FunctionName": "ecommerceapp-production-api",
         "Handler": "lambda.universal",
@@ -247,7 +247,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1556250220856": {
+    "ApiGatewayDeployment1556251912422": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
