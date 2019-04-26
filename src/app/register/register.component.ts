@@ -30,9 +30,21 @@ export class RegisterComponent implements OnInit {
   	else if(parseInt(form.value.age) < 18){
   		alert("Age must be 18 or over");
   	}
+    else if(form.value.password.length < 6 || form.value.password.length > 200)
+    {
+      alert("password must be 6 characters minimum and max 200 characters");
+    }
+    else if(form.value.address.length < 10 || form.value.address.length > 100) 
+    {
+      alert("address must be minimum 10 characters and max 50")
+    }
+    else if(form.value.name < 10 || form.value.name > 50)
+    {
+      alert("Name must be minimum 10 characters and max 50 characters")
+    }
     else
     {
-      alert("Required fields missing");
+      alert("Email must be valid")
     }
   }
 }

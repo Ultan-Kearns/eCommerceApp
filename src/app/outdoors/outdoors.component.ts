@@ -10,7 +10,7 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./outdoors.component.scss']
 })
 export class OutdoorsComponent implements OnInit {
-  private items:any = [];
+  items:any = [];
   private page:string = "Outdoors";
   constructor(private rs:RetrieveService,private ts:Title) { }
 

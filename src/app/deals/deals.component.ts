@@ -13,12 +13,12 @@ import { Title } from '@angular/platform-browser';
 export class DealsComponent implements OnInit {
   private page:string = "Deals"
   constructor(private router:Router,private rs:RetrieveService,private ts:Title) { }
-  item:any;
+  items:any;
   gotoElectronics(){
     this.router.navigate(["/electronics"]);
   }
     gotoBooks(){
-    this.router.navigate(["/forgot"]);
+    this.router.navigate(["/books"]);
   }
   ngOnInit() {
     this.ts.setTitle(this.page);
