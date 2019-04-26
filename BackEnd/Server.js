@@ -31,6 +31,12 @@ var orderSchema = new Schema({
   price: { type: Number, default: 0 },
 })
 
+var cartSchema = new Schema({
+  id: {type: Number, default:1},
+  price: {type: Number, default:1},
+  dateCreated: {type: String, default: "2018-09-01" },
+})
+
 //define user schema 
 var userSchema = new Schema({
   age: { type: Number, min: 18, index: true },
@@ -64,8 +70,9 @@ var bugSchema = new Schema({
 var reviewModel = mongoose.model('reviews', reviewSchema);
 var orderModel = mongoose.model('orders', orderSchema);
 var userModel = mongoose.model('users', userSchema);
-var itemModel = mongoose.model('items',itemSchema)
-var bugModel = mongoose.model('bugs',bugSchema)
+var itemModel = mongoose.model('items',itemSchema);
+var bugModel = mongoose.model('bugs',bugSchema);
+var cartModel = mongoose.model('cart',cartSchema);
 //send response 200 to show it is connected
 app.get('/', function(req, res) {
   res.status(200).send('Server works');
@@ -75,6 +82,12 @@ app.get('/api/users', function(req, res) {
   userModel.find(function(err, data) {
     res.json(data);
   });
+//retrive cart orders.
+app.get('api/cart',function(req,res){
+  cartModel.find(function(err,data){
+    res.json(data);
+  });
+});
 })
 app.get('/api/orders', function(req, res) {
   orderModel.find(function(err, data) {
@@ -115,16 +128,19 @@ console.log(mail);
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
+    //login
     user: 'angularproject19@gmail.com',
     pass: 'sh@rds3939'
   }
 });
 var mailOptions = {
+  //this sets up mail options
   from: 'angularproject19@gmail.com',
   to: mail,
   subject: 'Forgot E-mart password',
   text: 'Your password is: ' + data.password
 };
+//send response and log errors if any
 transporter.sendMail(mailOptions, function(error, info){
   if (error) {
     console.log(error);

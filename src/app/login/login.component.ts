@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
       })
   	}
   	else{
-  		alert("not working")
+  		alert("Form is invalid please retry with valid email and password")
       form.reset();
   	}
   }

@@ -1,5 +1,5 @@
 //imports for components and services
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar'; 
@@ -31,28 +31,10 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { RegisterComponent } from './register/register.component';
 import { AccountComponent } from './account/account.component';
 import { ForgotComponent } from './forgot/forgot.component';
-import { CommonModule } from '@angular/common';
-import { TransferHttpCacheModule } from '@nguniversal/common';
-import { NgtUniversalModule } from '@ng-toolkit/universal'; 
+import { AppModule } from './app.module'; 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomepageComponent,
-    AboutComponent,
-    SupportComponent,
-    DealsComponent,
-    LoginComponent,
-    ElectronicsComponent,
-    BooksComponent,
-    SportsComponent,
-    OutdoorsComponent,
-    CartComponent,
-    RegisterComponent,
-    AccountComponent,
-    ForgotComponent,
-  ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -67,14 +49,13 @@ import { NgtUniversalModule } from '@ng-toolkit/universal';
     HttpModule,
     MatFormFieldModule,
     MatTooltipModule,
-    CommonModule,
-    TransferHttpCacheModule,
-    NgtUniversalModule,
+    AppModule,
+    BrowserTransferStateModule,
     
   ],
   providers: [RetrieveService,AuthenticationService,HttpClientModule,BugPostService],
   bootstrap: [AppComponent]
 })
-export class AppModule {
+export class AppBrowserModule {
 
  }
