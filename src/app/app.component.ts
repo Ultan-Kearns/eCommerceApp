@@ -18,7 +18,23 @@ export class AppComponent implements OnInit {
                 bases[0].setAttribute('href', environment.baseHref);
             }
         }
+    
+    if (!isPlatformBrowser(this.platformId)) {
+        let bases = this.document.getElementsByTagName('base');
+
+        if (bases.length > 0) {
+            bases[0].setAttribute('href', environment.baseHref);
+        }
     }
+
+    if (!isPlatformBrowser(this.platformId)) {
+        let bases = this.document.getElementsByTagName('base');
+
+        if (bases.length > 0) {
+            bases[0].setAttribute('href', environment.baseHref);
+        }
+    }
+}
 
 
   constructor(@Inject(PLATFORM_ID) private platformId: any, @Inject(DOCUMENT) private document: any,   private router:Router){
