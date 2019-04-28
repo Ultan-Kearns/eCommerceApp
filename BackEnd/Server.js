@@ -33,8 +33,10 @@ var orderSchema = new Schema({
 
 var cartSchema = new Schema({
   id: {type: Number, default:1},
+  itemID:{type: Number},
   price: {type: Number, default:1},
   dateCreated: {type: String, default: "2018-09-01" },
+  userID:{type:String}
 })
 
 //define user schema 
@@ -46,6 +48,7 @@ var userSchema = new Schema({
   password:{type:String},
   dateCreated: { type: Date, default: Date.now },
   _id:{type:String},
+  cardNumber:{type:String}
 },{"_id":false})
 //define review schema
 var reviewSchema = new Schema({
@@ -205,7 +208,8 @@ app.post('/api/users',function(req,res,next)
     email:req.body.email,
     address:req.body.address,
     password:req.body.password,
-    _id:req.body._id
+    _id:req.body._id,
+    cardNumber:req.body.cardNumber
     });
     res.status(201).send("user added");
 })

@@ -2,21 +2,21 @@
   <h1>Welcome to the sports section</h1>
   <img src="assets/Images/ski.jpg" alt="image" width="500" height="500">
   <mat-accordion>
-  <div *ngFor="let item of items">
-    <div *ngIf="item.category == 'Sports'">
-      <mat-expansion-panel [expanded]="true">
-        <div class = "itemContent">
+    <div *ngFor="let item of items">
+      <div *ngIf="item.category == 'Sports'">
+        <mat-expansion-panel [expanded]="true">
+          <div class="itemContent">
               <h1>{{item.name}}</h1>
               <p>Price: €{{ item.price }}</p>
               <p>Rating {{ item.rating }}</p>
-          <img src = "{{item.image}}" height="300px" width="300px" alt = "Picture of item" />
-           <div class = "button"> 
-    <button color="warn">Add to cart</button>
-</div>
-         </div>
-      </mat-expansion-panel>
+            <img src="{{item.image}}" height="300px" width="300px" alt="Picture of item" />
+            <div class="button">
+              <button color="warn">Add to cart</button>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </div>
     </div>
-  </div>
 </mat-accordion>
  <p class="info-text mat-body-1" *ngIf="items.length <= 0">No items added yet!</p>
 </div>

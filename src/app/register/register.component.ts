@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
     //check user is 18
   	if(form.valid && parseInt(form.value.age) >= 18)
   	{
-  		this.post.registerUser(form.value.age,form.value.name,form.value.email,form.value.address,form.value.password,form.value.email).subscribe();
+  		this.post.registerUser(form.value.age,form.value.name,form.value.email,form.value.address,form.value.password,form.value.email,form.value.cardNumber).subscribe();
   		form.reset();
   		alert("User has been added");
   	}
@@ -41,6 +41,10 @@ export class RegisterComponent implements OnInit {
     else if(form.value.name < 10 || form.value.name > 50)
     {
       alert("Name must be minimum 10 characters and max 50 characters")
+    }
+        else if(form.value.cardNumber < 16 || form.value.cardNumber > 16)
+    {
+      alert("Card number must be exactly 16 characters")
     }
     else
     {
