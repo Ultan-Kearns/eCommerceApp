@@ -5,4 +5,5 @@ export interface User {
 	address:string;
 	password:string;
 	_id:string;
+	cardNumber:string;
 }

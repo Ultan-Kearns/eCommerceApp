@@ -3,32 +3,38 @@
 <!--   Need to add if statements to the mat errors-->
 <form (submit)="onAddUser(userForm)" #userForm="ngForm">
     <mat-form-field>
-    <input matInput placeholder="Enter age: " name = "age" ngModel required 
+    Age:<input matInput placeholder="Enter age: " name = "age" ngModel required 
       rows="4" min = "18"/>
     <mat-error>please enter value >= 18</mat-error>
   </mat-form-field>
   <br>
       <mat-form-field>
-    <input matInput placeholder="name: " name = "name" ngModel required 
+    Name:<input matInput placeholder="name: " name = "name" ngModel required 
       rows="4" minlength="10" maxlength="50" />
   </mat-form-field>
     <br>
   <mat-form-field>
-    <input type="email" matInput placeholder="Enter email: " name = "email" ngModel required  ngModel email
+    Email:<input type="email" matInput placeholder="Enter email: " name = "email" ngModel required  ngModel email
       rows="4" />
     <mat-error>Please enter valid email</mat-error>
   </mat-form-field>
     <br>
     <mat-form-field>
-    <input matInput placeholder="Enter address: " name = "address" ngModel required 
+    Address:<input matInput placeholder="Enter address: " name = "address" ngModel required 
       rows="4"  minlength="10" maxlength="100" />
   </mat-form-field>
     <br>
   <mat-form-field>
     <br>
-    <textarea matInput placeholder="Enter password: " name="content" name = "password" ngModel required #issue="ngModel"
-       minlength="6" maxlength="200" class = "text"></textarea>
+    Password:<textarea matInput placeholder="Enter password: " name="content" name = "password" ngModel required #issue="ngModel"
+       minlength="6" maxlength="200" class = "password"></textarea>
     <mat-error>Please enter an password > 6 characters</mat-error>
+  </mat-form-field>
+    <mat-form-field>
+    <br>
+    Card Number:<textarea matInput placeholder="Enter Card Number: " name="content" name = "cardNumber" ngModel required #issue="ngModel"
+       minlength="16" maxlength="16" class = "text"></textarea>
+    <mat-error>Please enter an card number = 16 characters</mat-error>
   </mat-form-field>
   <br>
   <button mat-raised-button color="accent" matTooltip="Register user">Submit</button>

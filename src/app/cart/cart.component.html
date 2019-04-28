@@ -2,7 +2,6 @@
     <h1>Welcome to your cart</h1>
     <mat-accordion multi="true" *ngIf="items.length > 0">
         <div *ngFor="let item of items">
-          <div *ngIf="item.category == 'Outdoors'">
             <mat-expansion-panel [expanded]="true">
               <div class="itemContent">
                   <h1>{{item.name}}</h1>
@@ -11,7 +10,6 @@
                   </div>
                 </mat-expansion-panel>
             </div>
-        </div>
     </mat-accordion>
     <p class="info-text mat-body-1" *ngIf="items.length <= 0">No items in cart yet!</p>
 </div>
