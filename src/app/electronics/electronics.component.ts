@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { RetrieveService } from '../services/retrieve.service';
+import {CartService} from '../services/cart.service';
 
 import { Title } from '@angular/platform-browser';
+import { CssKeyframesDriver } from '@angular/animations/browser/src/render/css_keyframes/css_keyframes_driver';
+
 
 
 @Component({
@@ -12,7 +15,7 @@ import { Title } from '@angular/platform-browser';
 export class ElectronicsComponent implements OnInit {
   items:any = [];
   private page:string = "Electronics"
-  constructor(private rs:RetrieveService,private ts:Title) { }
+  constructor(private cs:CartService,private rs:RetrieveService ,private ts:Title) { }
 
   ngOnInit() {
   	    //get items on load
@@ -21,6 +24,24 @@ export class ElectronicsComponent implements OnInit {
 });
     this.ts.setTitle(this.page);
     this.ts.getTitle();
+
+    for(let i = 0; i <this.items.length; i++)
+    {
+      //cs.addtocart(items)
+
+    }
+
+    
+
   }
+  
+}
+  
+
+  
+  
+
+
+  
 
 }

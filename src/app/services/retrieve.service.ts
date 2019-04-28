@@ -26,6 +26,10 @@ export class RetrieveService {
   getItemData(id:string):Observable<any>{
     return this.http.get("http://localhost:8081/api/items" + id);
   }
+
+  getCartData():Observable<any>{
+    return this.http.get("http://localhost:8081/api/cart/");
+  }
     //for specific user
   getUserData(email:string):Observable<any>{
     return this.http.get("http://localhost:8081/api/users/" + email);

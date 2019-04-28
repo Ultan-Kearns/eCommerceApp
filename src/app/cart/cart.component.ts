@@ -16,12 +16,12 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     //get items on load
-
+    this.rs.getCartData().subscribe(data =>{
+      this.items = data;
+    });
   	this.ts.setTitle(this.page);
   	  this.ts.getTitle();
   }
 
-       //buy(){
-          //code for the buy will go here
-       //}
+      
 }
