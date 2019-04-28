@@ -15,7 +15,7 @@
               <p>Rating {{ item.rating }}</p>
               <img src="{{item.image}}" height="300px" width="300px" alt="Picture of item" />
               <div class="button">
-                <button color="warn">Add to cart</button>
+                <button color="warn" (click)="addToCart()">Add to cart</button>
               </div>
             </div>
           </mat-expansion-panel>

@@ -16,9 +16,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     //get items on load
-    this.rs.getItemsData().subscribe(data => {
-      this.items = data;
-    });
+
   	this.ts.setTitle(this.page);
   	  this.ts.getTitle();
   }

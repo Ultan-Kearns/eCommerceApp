@@ -9,9 +9,9 @@ export class CartService{
     constructor(private http:HttpClient) { 
     }
 
-    addToCart(_id:number,price:Number,dateCreated:String): Observable<any> {
-        const order:cart = {_id:_id,price:price,dateCreated:dateCreated};
-        return this.http.post("http://localhost:8081/api/users/",order);
+    addToCart(_id:number,price:Number,dateCreated:String,itemID:Number,userID:String): Observable<any> {
+        const order:cart = {_id:_id,itemID,price:price,dateCreated:dateCreated,userID};
+        return this.http.post("http://localhost:8081/api/cart/",order);
     }
 
 }

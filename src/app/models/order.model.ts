@@ -1,6 +1,5 @@
-export interface cart{
+export interface order{
     _id: Number;
-    itemID:Number;
     price: Number;
     dateCreated: String;
     userID:String;
