@@ -44,7 +44,7 @@
     "@nguniversal/common": "0.0.0",
     "@nguniversal/express-engine": "0.0.0",
     "@nguniversal/module-map-ngfactory-loader": "0.0.0",
-    "ajv": "^6.10.0",
+    "ajv": "^6.12.3",
     "aws-serverless-express": "^3.2.0",
     "core-js": "^2.6.5",
     "cors": "~2.8.4",
